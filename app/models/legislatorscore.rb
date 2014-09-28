@@ -9,10 +9,16 @@ class Legislatorscore < ActiveRecord::Base
   end
     
   def self.get_last_legislatorscore_update_time()
-    update = Legislatorscore.recent.first.updated_at     
+    record = Legislatorscore.recent.first  
+    if record.blank?
+      return nil
+    else
+      update = record.updated_at
+    end
+    return update
   end   
 
-  def self.calculate_mocvts(bio_id)
+  def self.calculate_mocvts(bio_id)    
     yea = Vote.where("#{bio_id} = ? AND pertinent_vote = ?", "Yea", "true").pluck(bio_id)
     nay = Vote.where("#{bio_id} = ? AND pertinent_vote = ?", "Nay", "true").pluck(bio_id)
     mocvts = yea.count + nay.count
