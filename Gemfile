@@ -25,7 +25,7 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-
+gem "haml-rails"
 gem 'congress'
 gem 'kaminari'
 gem "table_print", "~> 1.0.0"
@@ -38,10 +38,11 @@ group :doc do
 end
 
 group :development do
-  gem 'rails_layout'
+  
   gem "better_errors"
   gem "binding_of_caller"
   gem 'rspec-rails', '~> 3.0.0'
+  
  
 end
 
