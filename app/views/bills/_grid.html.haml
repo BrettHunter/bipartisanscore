@@ -1,0 +1,30 @@
+
+<%= grid(@bills_grid) do |g|
+
+  g.column name:  'Bill ID' do |bill|
+    link_to "#{bill.bill_id}", bill_path(bill.id) 
+  end
+
+  g.column name:  'Last Action' do |bill|
+    bill.last_action_at.to_date
+  end
+  
+  g.column name:  'Chamber'  do |bill|
+    bill.chamber.capitalize
+  end
+
+  g.column  name:  'Official Title' do |bill|
+    bill.official_title
+  end
+   
+  g.column  name:  'Combined Opposition Factor' do |bill|
+    Bill.combined_opposition_factor(bill.bill_id)
+  end
+
+  g.column  name:  'Bipartisan Score', model: 'Billscore', attribute: 'global_rank' do |bill|
+    bill.billscore[0].global_rank
+  end
+  
+  
+
+ end -%>
