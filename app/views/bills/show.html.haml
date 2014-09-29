@@ -1,11 +1,27 @@
 .row
   %h2= @bill.bill_id 
 .row
-  %h2= @bill.official_title
+  %h3= @bill.official_title
 .row
   .panel
     .row
-      %h3 BipartisanScore Summary
+      %h4 BipartisanScore Summary
     .row
-      Combined Opposition Factor: =@bill.billscore.first.combined_pscore
+      Combined Opposition Factor: 
+      = @bill.billscore.first.combined_pscore
+    .row
+      Bipartisan Rank: 
+      = @bill.bill_rank(params[:id])[0].ordinalize
+      most bipartisan bill out of 
+      = @bill.bill_rank(params[:id])[1]
+      eligible bills.
+.row
+  - if @billcount == 2
+    = bill_info(@billinfo,0)
+    = bill_info(@billinfo,1)
+  - else
+    = bill_info(@billinfo,0)
+.row
+  
+    
     

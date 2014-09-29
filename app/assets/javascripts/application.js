@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require wice_grid
 //= require jquery_ujs
 //= require turbolinks
 //= require foundation

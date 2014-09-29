@@ -1,0 +1,24 @@
+<%# show_filters: :when_filtered %>
+<%= grid(@legislators_grid) do |g|
+
+  g.column name:  'Member', attribute: 'first_name' do |legislator|
+    link_to "#{legislator.title} #{legislator.first_name} #{legislator.last_name}", legislator_path(legislator.id) 
+  end
+  
+  
+  
+  g.column name:  'Party', attribute: 'party' do |legislator|
+    legislator.party
+  end
+  
+  g.column name:  'State', attribute: 'state' do |legislator|
+    legislator.state
+  end
+  
+  g.column name:  'Bipartisan Score', model: 'Legislatorscore', attribute: 'bipartisanscore' do |legislator|
+    legislator.legislatorscore.bipartisanscore
+  end
+  
+  
+
+end -%>

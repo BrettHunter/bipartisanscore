@@ -1,0 +1,43 @@
+.row
+  .small-12.columns
+  %h2
+    = @legislator.title
+    = @legislator.first_name
+    = @legislator.last_name
+    = surround "(", ")" do
+      = succeed "," do
+        = @legislator.party      
+      = @legislator.state    
+.row
+  .small-12.columns
+    .small-3.columns
+      .panel
+        :erb
+          <img src="http://theunitedstates.io/images/congress/225x275/<%=@legislator.bioguide_id.upcase%>.jpg">
+    .small-9.columns
+      .panel.callout
+        .row
+          Bipartisan Score:
+        .row
+        = @legislator.legislatorscore.bipartisanscore
+        .row
+          Ranked
+          = @chamberparty_rank.ordinalize
+          most bipartisan out of
+          = @chamberparty_count
+          = @chamberparty_descriptor
+.row
+  .small-12.columns
+  .panel.callout
+    Oh Hey!
+.row
+  .small-12.columns
+  %h3 
+    Significant Bipartisan Votes for 
+    = @legislator.title
+    = @legislator.last_name
+    = succeed ":" do
+      = surround "(", ")" do
+        = @bill_array.count    
+.row
+  = render :partial => "top_grid"

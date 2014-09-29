@@ -10,6 +10,7 @@ class BillsController < ApplicationController
   def show
    @bill = Bill.find(params[:id])
    @billinfo = @bill.billscore
+   @billcount = @billinfo.count
    
   end
 end

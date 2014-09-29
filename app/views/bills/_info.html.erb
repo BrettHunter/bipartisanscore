@@ -1,0 +1,26 @@
+<div class="small-6 columns">
+<div class="panel callout">
+<div class="row">
+  <h3><%= billinfo[i].chamber.capitalize %> Vote:</h3>
+  </div>
+<div class="row">
+  Result = <div class="label"><%= billinfo[i].result %></div>
+( <%= billinfo[i].yea %> Yea Votes / <%= billinfo[i].nay %> Nay Votes )
+  </div>
+  <div class="row">
+    Republican Majority Position = <%= billinfo[i].rpos %>
+  </div>
+  <div class="row">
+    Democrat Majority Position = <%= billinfo[i].dpos %>
+  </div>
+  <div class="row">
+    Opposition Factor = <%= billinfo[i].pscore %>
+  </div>
+  <div class="row">
+    Opposition Rank = <%= billinfo[i].chamber_rank %>
+   </div>
+  <div class="row">
+    Voted On  <%= billinfo[i].voted_at.to_date %>
+   </div>
+</div>
+</div> 
