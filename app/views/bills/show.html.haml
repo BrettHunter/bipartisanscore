@@ -1,0 +1,11 @@
+.row
+  %h2= @bill.bill_id 
+.row
+  %h2= @bill.official_title
+.row
+  .panel
+    .row
+      %h3 BipartisanScore Summary
+    .row
+      Combined Opposition Factor: =@bill.billscore.first.combined_pscore
+    
