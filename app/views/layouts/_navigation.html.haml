@@ -3,10 +3,13 @@
 %nav.top-bar{"data-topbar" => true}
   %ul.title-area
     %li.name
-      = link_to 'Home', root_path
-    %li.toggle-topbar.menu-icon
-      %a{:href => "#"}
-        Menu
+      = link_to 'BipartisanScore', root_path
+    
   .top-bar-section
-    %ul
-      = render 'layouts/navigation_links'
+    %ul.right
+      %li.divider
+      %li
+        = link_to 'Bills', bills_path
+      %li.divider
+      %li
+        = link_to 'Legislators', legislators_path
