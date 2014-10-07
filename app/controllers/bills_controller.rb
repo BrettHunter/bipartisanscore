@@ -5,7 +5,7 @@ class BillsController < ApplicationController
   
   def index
     
-    @bills_grid = initialize_grid(Bill.has_billscore)
+    @bills_grid = initialize_grid(Bill.has_billscore, include: [:billscore])
   end
   def show
    @bill = Bill.find(params[:id])

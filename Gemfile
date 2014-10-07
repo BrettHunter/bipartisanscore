@@ -43,6 +43,7 @@ group :development do
   gem "binding_of_caller"
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rails_layout'
+  gem 'bullet'
   
  
 end
@@ -50,6 +51,10 @@ end
 group :production do
   
   gem 'rails_12factor', '0.0.2'
+end
+
+group :test do
+gem 'rspec-rails', '~> 3.0.0'
 end
 
 # Use ActiveModel has_secure_password

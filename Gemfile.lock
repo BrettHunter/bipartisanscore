@@ -33,6 +33,9 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.1.4)
+    bullet (4.14.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (>= 1.6.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -164,6 +167,7 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.6.2)
     wice_grid (3.4.2)
       kaminari (>= 0.13.0)
 
@@ -173,6 +177,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  bullet
   coffee-rails (~> 4.0.0)
   congress
   foundation-rails
