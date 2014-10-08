@@ -44,6 +44,8 @@ group :development do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rails_layout'
   gem 'bullet'
+  gem 'rack-mini-profiler'
+  gem 'factory_girl_rails'
   
  
 end
@@ -54,7 +56,7 @@ group :production do
 end
 
 group :test do
-gem 'rspec-rails', '~> 3.0.0'
+
 end
 
 # Use ActiveModel has_secure_password

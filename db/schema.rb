@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927190914) do
+ActiveRecord::Schema.define(version: 20141007224914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140927190914) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "bills", ["bill_id"], name: "index_bills_on_bill_id", using: :btree
 
   create_table "billscores", force: true do |t|
     t.string   "bill_id"
@@ -63,6 +65,9 @@ ActiveRecord::Schema.define(version: 20140927190914) do
     t.string   "voted_at"
   end
 
+  add_index "billscores", ["bill_id"], name: "index_billscores_on_bill_id", using: :btree
+  add_index "billscores", ["roll_id"], name: "index_billscores_on_roll_id", using: :btree
+
   create_table "legislators", force: true do |t|
     t.string   "bioguide_id"
     t.string   "title"
@@ -80,6 +85,8 @@ ActiveRecord::Schema.define(version: 20140927190914) do
     t.datetime "updated_at"
   end
 
+  add_index "legislators", ["bioguide_id"], name: "index_legislators_on_bioguide_id", using: :btree
+
   create_table "legislatorscores", force: true do |t|
     t.string   "bioguide_id"
     t.integer  "legislator_id"
@@ -93,6 +100,8 @@ ActiveRecord::Schema.define(version: 20140927190914) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "legislatorscores", ["bioguide_id"], name: "index_legislatorscores_on_bioguide_id", using: :btree
 
   create_table "votes", force: true do |t|
     t.string   "bill_id"
@@ -659,5 +668,8 @@ ActiveRecord::Schema.define(version: 20140927190914) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "votes", ["bill_id"], name: "index_votes_on_bill_id", using: :btree
+  add_index "votes", ["roll_id"], name: "index_votes_on_roll_id", using: :btree
 
 end

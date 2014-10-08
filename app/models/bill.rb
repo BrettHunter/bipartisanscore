@@ -64,7 +64,7 @@ class Bill < ActiveRecord::Base
     rank = array.index(factor) + 1 
     count = array.count
   return rank, count
-end
+  end
   
   
 end
