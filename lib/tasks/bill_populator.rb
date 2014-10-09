@@ -1,6 +1,4 @@
-if db_update > api_update
-    abort("no updates found...")    
-  else
+
   api_update = Bill.get_last_api_update()
   db_update = Bill.get_last_db_update() 
   if db_update == nil
@@ -28,4 +26,5 @@ if db_update > api_update
     puts i    
     end
 end
+
 
