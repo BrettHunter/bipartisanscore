@@ -27,5 +27,5 @@ if db_update > api_update
     i +=1
     puts i    
     end
-
+end
 
