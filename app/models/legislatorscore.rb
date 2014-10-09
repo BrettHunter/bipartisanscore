@@ -22,7 +22,7 @@ class Legislatorscore < ActiveRecord::Base
     yea = Vote.where("#{bio_id} = ? AND pertinent_vote = ?", "Yea", "true").pluck(bio_id)
     nay = Vote.where("#{bio_id} = ? AND pertinent_vote = ?", "Nay", "true").pluck(bio_id)
     mocvts = yea.count + nay.count
- end
+  end
   
   def self.calculate_mocpts(bio_id)
     mocpts = 0
@@ -125,7 +125,9 @@ class Legislatorscore < ActiveRecord::Base
         i = 0
       end   
       imocpts = i * bill.pscore
-      hsh["#{record.bill_id}"] = imocpts
+      if imocpts > 0
+        hsh["#{record.bill_id}"] = imocpts
+      end
       imocpts = 0
       i = 0    
     end  
@@ -219,7 +221,7 @@ class Legislatorscore < ActiveRecord::Base
   def self.get_pointed_votes(leg_id)
     record = Legislatorscore.find_by legislator_id: leg_id
     hsh = record.each_vote_points
-    hsh.select! { |k,v| v > 0 }      
+    obj = Hash[hsh.sort_by{|k, v| v}.reverse]     
   end    
   
 end

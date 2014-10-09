@@ -4,7 +4,7 @@ last_vote_update_time = Legislatorscore.get_last_vote_update_time()
     
     elsif last_legislatorscore_update_time > last_vote_update_time    
     abort("No updated Votes!")    
-  end  
+  end   
   
   i = 0
 leg = Legislator.all.pluck('bioguide_id')
@@ -13,7 +13,8 @@ leg = Legislator.all.pluck('bioguide_id')
     i += 1
     puts i
     mocpts = Legislatorscore.calculate_mocpts(l)
-    each_vote_points = Legislatorscore.each_vote_points(l)
+    evp = Legislatorscore.each_vote_points(l)
+    each_vote_points = Hash[evp.sort_by{|k, v| v}.reverse] 
     mocscore = Legislatorscore.calculate_mocscore(mocvts,mocpts)
     mocchamber = Legislatorscore.determine_chamber(l)
     mocparty = Legislatorscore.determine_party(l)
