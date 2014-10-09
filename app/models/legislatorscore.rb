@@ -221,7 +221,8 @@ class Legislatorscore < ActiveRecord::Base
   def self.get_pointed_votes(leg_id)
     record = Legislatorscore.find_by legislator_id: leg_id
     hsh = record.each_vote_points
-    obj = Hash[hsh.sort_by{|k, v| v}.reverse]     
+    obj = hsh.select { |k,v| v > 0 }
+    rtn = Hash[obj.sort_by{|k, v| v}.reverse]     
   end    
   
 end
