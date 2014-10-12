@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -6,8 +7,7 @@ gem 'rails', '4.0.0'
 # Use postgreSQL as the database for Active Record
 gem 'pg', '0.15.1'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-
+gem 'sass-rails', '4.0.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -41,8 +41,7 @@ group :development do
   
   gem "better_errors"
   gem "binding_of_caller"
-  gem 'rspec-rails', '~> 3.0.0'
-  gem 'rails_layout'
+  gem 'rspec-rails', '~> 3.0.0'  
   gem 'bullet'
   gem 'rack-mini-profiler'
   gem 'factory_girl_rails'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007224914) do
+ActiveRecord::Schema.define(version: 20141010133258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20141007224914) do
   end
 
   add_index "billscores", ["bill_id"], name: "index_billscores_on_bill_id", using: :btree
+  add_index "billscores", ["chamber"], name: "index_billscores_on_chamber", using: :btree
   add_index "billscores", ["roll_id"], name: "index_billscores_on_roll_id", using: :btree
 
   create_table "legislators", force: true do |t|
@@ -670,6 +671,8 @@ ActiveRecord::Schema.define(version: 20141007224914) do
   end
 
   add_index "votes", ["bill_id"], name: "index_votes_on_bill_id", using: :btree
+  add_index "votes", ["chamber"], name: "index_votes_on_chamber", using: :btree
+  add_index "votes", ["pertinent_vote"], name: "index_votes_on_pertinent_vote", using: :btree
   add_index "votes", ["roll_id"], name: "index_votes_on_roll_id", using: :btree
 
 end

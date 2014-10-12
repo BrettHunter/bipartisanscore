@@ -1,8 +1,10 @@
 class Legislatorscore < ActiveRecord::Base
   validates :bioguide_id, uniqueness: true
   serialize  :each_vote_points, Hash
-  belongs_to :legislator, foreign_key: "bioguide_id"
+  belongs_to :legislator, foreign_key: "legislator_id"
   scope :recent, -> { order("legislatorscores.updated_at DESC") }
+  scope :top, -> { order("legislatorscores.bipartisanscore DESC") }
+  scope :bottom, -> { order("legislatorscores.bipartisanscore ASC") }
   
   def self.get_last_vote_update_time()
     update = Vote.recent.first.updated_at    

@@ -4,12 +4,47 @@
 
 .backg{
   width: 100%;
-  height: 100%;
-   margin-left: auto;
-   margin-right: auto;
-   max-width: initial;
-  background-image: image-url("background.jpg") ;
-  z-index: 999;
-  background-position: center center;
+  height: 60%;
+  max-width: initial;
+  background-image: image-url("background.jpg") ;  
+  background-position: center bottom;
   background-size: cover;
+  position: relative;
+}
+
+.splash{
+  color:  #ffffff;
+  font-size: 300%;
+  text-shadow: 2px 2px #193c64;
+  text-align: center;
+  
+}
+
+.search{
+  background-color: rgba(0,0,0,0.5);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+}
+
+.results{
+  margin-top: 15px;
+  text-align: center;
+  
+}
+
+.frontPanel{
+  background-color: #b6d9ec;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #1b3e64;
+  padding: 5px;
+  padding-top: 0px;
+}
+
+.two{
+  background-color: #eee;  
+  margin-top: 15px;
 }
