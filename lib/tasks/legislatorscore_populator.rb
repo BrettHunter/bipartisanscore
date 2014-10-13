@@ -6,7 +6,7 @@ last_vote_update_time = Legislatorscore.get_last_vote_update_time()
     abort("No updated Votes!")    
   end   
   
-  i = 0
+i = 0
 leg = Legislator.all.pluck('bioguide_id')
   leg.each do |l|     
     mocvts = Legislatorscore.calculate_mocvts(l)

@@ -1,0 +1,13 @@
+.small-3.columns
+  .frontPanel
+    = @m.legislator.title
+    = @m.legislator.first_name
+    = @m.legislator.last_name
+    = surround "(", ")" do
+      = succeed "," do
+        = @m.legislator.party      
+      = @m.legislator.state 
+    :erb
+      <img src="<%= photo_url(@m.bioguide_id) %>">
+    BipartisanScore: 
+    = @m.bipartisanscore

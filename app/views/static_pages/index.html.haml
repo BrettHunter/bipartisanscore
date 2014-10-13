@@ -10,224 +10,24 @@
   .results
     %h2
       Most Bipartisan Senators:
-    .small-3.columns
-      .frontPanel
-        = @top_senators[0].legislator.title
-        = @top_senators[0].legislator.first_name
-        = @top_senators[0].legislator.last_name
-        = surround "(", ")" do
-          = succeed "," do
-            = @top_senators[0].legislator.party      
-          = @top_senators[0].legislator.state 
-        :erb
-          <img src="http://theunitedstates.io/images/congress/225x275/<%=@top_senators[0].legislator.bioguide_id.upcase%>.jpg">
-        BipartisanScore: 
-        = @top_senators[0].bipartisanscore
-    .small-3.columns
-      .frontPanel
-        = @top_senators[1].legislator.title
-        = @top_senators[1].legislator.first_name
-        = @top_senators[1].legislator.last_name
-        = surround "(", ")" do
-          = succeed "," do
-            = @top_senators[1].legislator.party      
-          = @top_senators[1].legislator.state 
-        :erb
-          <img src="http://theunitedstates.io/images/congress/225x275/<%=@top_senators[1].legislator.bioguide_id.upcase%>.jpg">
-        BipartisanScore: 
-        = @top_senators[1].bipartisanscore
-    .small-3.columns
-      .frontPanel
-        = @top_senators[2].legislator.title
-        = @top_senators[2].legislator.first_name
-        = @top_senators[2].legislator.last_name
-        = surround "(", ")" do
-          = succeed "," do
-            = @top_senators[2].legislator.party      
-          = @top_senators[2].legislator.state 
-        :erb
-          <img src="http://theunitedstates.io/images/congress/225x275/<%=@top_senators[2].legislator.bioguide_id.upcase%>.jpg">
-        BipartisanScore: 
-        = @top_senators[2].bipartisanscore
-    .small-3.columns
-      .frontPanel
-        = @top_senators[3].legislator.title
-        = @top_senators[3].legislator.first_name
-        = @top_senators[3].legislator.last_name
-        = surround "(", ")" do
-          = succeed "," do
-            = @top_senators[3].legislator.party      
-          = @top_senators[3].legislator.state 
-        :erb
-          <img src="http://theunitedstates.io/images/congress/225x275/<%=@top_senators[3].legislator.bioguide_id.upcase%>.jpg">
-        BipartisanScore: 
-        = @top_senators[3].bipartisanscore
+    - @top_senators.each do |m|
+      = render :partial => 'mocbox', :locals => { :@m => m } 
 .row
   .results
     %h2
       Most Bipartisan Representatives:
-    .small-3.columns
-      .frontPanel
-        = @top_representatives[0].legislator.title
-        = @top_representatives[0].legislator.first_name
-        = @top_representatives[0].legislator.last_name
-        = surround "(", ")" do
-          = succeed "," do
-            = @top_representatives[0].legislator.party      
-          = @top_representatives[0].legislator.state 
-        :erb
-          <img src="http://theunitedstates.io/images/congress/225x275/<%=@top_representatives[0].legislator.bioguide_id.upcase%>.jpg">
-        BipartisanScore: 
-        = @top_representatives[0].bipartisanscore
-    .small-3.columns
-      .frontPanel
-        = @top_representatives[1].legislator.title
-        = @top_representatives[1].legislator.first_name
-        = @top_representatives[1].legislator.last_name
-        = surround "(", ")" do
-          = succeed "," do
-            = @top_representatives[1].legislator.party      
-          = @top_representatives[1].legislator.state 
-        :erb
-          <img src="http://theunitedstates.io/images/congress/225x275/<%=@top_representatives[1].legislator.bioguide_id.upcase%>.jpg">
-        BipartisanScore: 
-        = @top_representatives[1].bipartisanscore
-    .small-3.columns
-      .frontPanel
-        = @top_representatives[2].legislator.title
-        = @top_representatives[2].legislator.first_name
-        = @top_representatives[2].legislator.last_name
-        = surround "(", ")" do
-          = succeed "," do
-            = @top_representatives[2].legislator.party      
-          = @top_representatives[2].legislator.state 
-        :erb
-          <img src="http://theunitedstates.io/images/congress/225x275/<%=@top_representatives[2].legislator.bioguide_id.upcase%>.jpg">
-        BipartisanScore: 
-        = @top_representatives[2].bipartisanscore
-    .small-3.columns
-      .frontPanel
-        = @top_representatives[3].legislator.title
-        = @top_representatives[3].legislator.first_name
-        = @top_representatives[3].legislator.last_name
-        = surround "(", ")" do
-          = succeed "," do
-            = @top_representatives[3].legislator.party      
-          = @top_representatives[3].legislator.state 
-        :erb
-          <img src="http://theunitedstates.io/images/congress/225x275/<%=@top_representatives[3].legislator.bioguide_id.upcase%>.jpg">
-        BipartisanScore: 
-        = @top_representatives[3].bipartisanscore
+    - @top_representatives.each do |m|
+      = render :partial => 'mocbox', :locals => { :@m => m } 
 .two
   .row
     .results
       %h2
         Least Bipartisan Senators:
-      .small-3.columns
-        .frontPanel
-          = @bottom_senators[0].legislator.title
-          = @bottom_senators[0].legislator.first_name
-          = @bottom_senators[0].legislator.last_name
-          = surround "(", ")" do
-            = succeed "," do
-              = @bottom_senators[0].legislator.party      
-            = @bottom_senators[0].legislator.state 
-          :erb
-            <img src="http://theunitedstates.io/images/congress/225x275/<%=@bottom_senators[0].legislator.bioguide_id.upcase%>.jpg">
-          BipartisanScore: 
-          = @bottom_senators[0].bipartisanscore
-      .small-3.columns
-        .frontPanel
-          = @bottom_senators[1].legislator.title
-          = @bottom_senators[1].legislator.first_name
-          = @bottom_senators[1].legislator.last_name
-          = surround "(", ")" do
-            = succeed "," do
-              = @bottom_senators[1].legislator.party      
-            = @bottom_senators[1].legislator.state 
-          :erb
-            <img src="http://theunitedstates.io/images/congress/225x275/<%=@bottom_senators[1].legislator.bioguide_id.upcase%>.jpg">
-          BipartisanScore: 
-          = @bottom_senators[1].bipartisanscore
-      .small-3.columns
-        .frontPanel
-          = @bottom_senators[2].legislator.title
-          = @bottom_senators[2].legislator.first_name
-          = @bottom_senators[2].legislator.last_name
-          = surround "(", ")" do
-            = succeed "," do
-              = @bottom_senators[2].legislator.party      
-            = @bottom_senators[2].legislator.state 
-          :erb
-            <img src="http://theunitedstates.io/images/congress/225x275/<%=@bottom_senators[2].legislator.bioguide_id.upcase%>.jpg">
-          BipartisanScore: 
-          = @bottom_senators[2].bipartisanscore
-      .small-3.columns
-        .frontPanel
-          = @bottom_senators[3].legislator.title
-          = @bottom_senators[3].legislator.first_name
-          = @bottom_senators[3].legislator.last_name
-          = surround "(", ")" do
-            = succeed "," do
-              = @bottom_senators[3].legislator.party      
-            = @bottom_senators[3].legislator.state 
-          :erb
-            <img src="http://theunitedstates.io/images/congress/225x275/<%=@bottom_senators[3].legislator.bioguide_id.upcase%>.jpg">
-          BipartisanScore: 
-          = @bottom_senators[3].bipartisanscore
+      - @bottom_senators.each do |m|
+        = render :partial => 'mocbox', :locals => { :@m => m } 
   .row
     .results
       %h2
         Least Bipartisan Representatives:
-      .small-3.columns
-        .frontPanel
-          = @bottom_representatives[0].legislator.title
-          = @bottom_representatives[0].legislator.first_name
-          = @bottom_representatives[0].legislator.last_name
-          = surround "(", ")" do
-            = succeed "," do
-              = @bottom_representatives[0].legislator.party      
-            = @bottom_representatives[0].legislator.state 
-          :erb
-            <img src="http://theunitedstates.io/images/congress/225x275/<%=@bottom_representatives[0].legislator.bioguide_id.upcase%>.jpg">
-          BipartisanScore: 
-          = @bottom_representatives[0].bipartisanscore
-      .small-3.columns
-        .frontPanel
-          = @bottom_representatives[1].legislator.title
-          = @bottom_representatives[1].legislator.first_name
-          = @bottom_representatives[1].legislator.last_name
-          = surround "(", ")" do
-            = succeed "," do
-              = @bottom_representatives[1].legislator.party      
-            = @bottom_representatives[1].legislator.state 
-          :erb
-            <img src="http://theunitedstates.io/images/congress/225x275/<%=@bottom_representatives[1].legislator.bioguide_id.upcase%>.jpg">
-          BipartisanScore: 
-          = @bottom_representatives[1].bipartisanscore
-      .small-3.columns
-        .frontPanel
-          = @bottom_representatives[2].legislator.title
-          = @bottom_representatives[2].legislator.first_name
-          = @bottom_representatives[2].legislator.last_name
-          = surround "(", ")" do
-            = succeed "," do
-              = @bottom_representatives[2].legislator.party      
-            = @bottom_representatives[2].legislator.state 
-          :erb
-            <img src="http://theunitedstates.io/images/congress/225x275/<%=@bottom_representatives[2].legislator.bioguide_id.upcase%>.jpg">
-          BipartisanScore: 
-          = @bottom_representatives[2].bipartisanscore
-      .small-3.columns
-        .frontPanel
-          = @bottom_representatives[3].legislator.title
-          = @bottom_representatives[3].legislator.first_name
-          = @bottom_representatives[3].legislator.last_name
-          = surround "(", ")" do
-            = succeed "," do
-              = @bottom_representatives[3].legislator.party      
-            = @bottom_representatives[3].legislator.state 
-          :erb
-            <img src="http://theunitedstates.io/images/congress/225x275/<%=@bottom_representatives[3].legislator.bioguide_id.upcase%>.jpg">
-          BipartisanScore: 
-          = @bottom_representatives[3].bipartisanscore
+      - @bottom_representatives.each do |m|
+        = render :partial => 'mocbox', :locals => { :@m => m } 

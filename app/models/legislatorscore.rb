@@ -5,6 +5,7 @@ class Legislatorscore < ActiveRecord::Base
   scope :recent, -> { order("legislatorscores.updated_at DESC") }
   scope :top, -> { order("legislatorscores.bipartisanscore DESC") }
   scope :bottom, -> { order("legislatorscores.bipartisanscore ASC") }
+  scope :in_office, -> { joins(:legislator).where("in_office = ?", "t")}
   
   def self.get_last_vote_update_time()
     update = Vote.recent.first.updated_at    
@@ -26,6 +27,37 @@ class Legislatorscore < ActiveRecord::Base
     mocvts = yea.count + nay.count
   end
   
+  def self.calculate_chamber_votes(chamber)
+    count = Vote.where("chamber = ? AND pertinent_vote = ?", "#{chamber}", "true").count
+  end
+  
+  def self.determine_vote_penalty(bio_id)
+    chamber = determine_chamber(bio_id)
+    chamber_count = calculate_chamber_votes(chamber)
+    moc_count = calculate_mocvts(bio_id)
+    if chamber_count * 0.75 > moc_count
+      penalty = true
+    else 
+      penalty = false
+    end
+    return penalty
+  end
+  
+  def self.determine_voteresult(result)
+    if result.include? "Passed" 
+      voteresult = "Yea"
+    elsif result.include? "Agreed" 
+      voteresult = "Yea"
+    elsif result.include? "Failed" 
+      voteresult = "Nay"
+    elsif result.include? "Rejected" 
+      voteresult = "Nay"
+    end
+    return voteresult
+  end
+    
+    
+  
   def self.calculate_mocpts(bio_id)
     mocpts = 0
     legrecord = Legislator.find_by bioguide_id: bio_id
@@ -42,15 +74,7 @@ class Legislatorscore < ActiveRecord::Base
       bill = Billscore.find_by roll_id: record.roll_id
       ippos = bill.send("#{ppos}")  
       result = bill.result    
-      if result.include? "Passed" 
-        voteresult = "Yea"
-      elsif result.include? "Agreed" 
-        voteresult = "Yea"
-      elsif result.include? "Failed" 
-        voteresult = "Nay"
-      elsif result.include? "Rejected" 
-        voteresult = "Nay"
-      end    
+      voteresult = determine_voteresult(result)
       if mocpos != ippos
         i = 1
       end
@@ -96,15 +120,7 @@ class Legislatorscore < ActiveRecord::Base
       bill = Billscore.find_by roll_id: record.roll_id
       ippos = bill.send("#{ppos}")  
       result = bill.result    
-      if result.include? "Passed" 
-        voteresult = "Yea"
-      elsif result.include? "Agreed" 
-        voteresult = "Yea"
-      elsif result.include? "Failed" 
-        voteresult = "Nay"
-      elsif result.include? "Rejected" 
-        voteresult = "Nay"
-      end    
+      voteresult = determine_voteresult(result)  
       if mocpos != ippos
         i = 1
       end
@@ -206,6 +222,13 @@ class Legislatorscore < ActiveRecord::Base
     lessarray = array.select { |n| n < score }
     lessers = lessarray.count
     bipartisanscore = lessers * 100 / scores
+    penalty = determine_vote_penalty(record.bioguide_id)
+    if penalty == true  
+      bipartisanscore -= 25
+    end
+    if bipartisanscore < 0
+      bipartisanscore = 0
+    end
     return bipartisanscore
   end
 
