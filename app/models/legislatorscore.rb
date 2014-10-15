@@ -103,6 +103,16 @@ class Legislatorscore < ActiveRecord::Base
     end   
     return mocpts
   end
+  
+  def self.determine_ppos(mocparty)
+    if mocparty == "R" 
+      ppos = "rpos"
+    else 
+      ppos = "dpos"
+    end
+    return ppos
+  end
+  
 
   def self.each_vote_points(bio_id)
     hsh = {}
@@ -243,11 +253,109 @@ class Legislatorscore < ActiveRecord::Base
     return globalscore
   end
     
-  def self.get_pointed_votes(leg_id)
-    record = Legislatorscore.find_by legislator_id: leg_id
+  def self.get_pointed_votes(bio_id)
+    record = Legislatorscore.find_by bioguide_id: bio_id
     hsh = record.each_vote_points
     obj = hsh.select { |k,v| v > 0 }
     rtn = Hash[obj.sort_by{|k, v| v}.reverse]     
-  end    
+  end
   
+  def self.get_voted_roll_ids(bio_id)
+    ary = Vote.where("#{bio_id} = ? OR #{bio_id} = ? AND pertinent_vote = ?", "Yea", "Nay", "true").pluck(:roll_id , :"#{bio_id}")
+  end
+  
+  def self.get_vote_match_count(ary,ppos)
+    i = 0
+    ary.each do |r|
+      val = Billscore.where("roll_id = ?", "#{r[0]}").pluck(:"#{ppos}")     
+      if val[0] == r[1]
+        i +=1        
+      end    
+    end  
+  return i
+  end
+      
+  
+  def self.calculate_party_percentage(bio_id)
+    mocvts = calculate_mocvts(bio_id)
+    ary = get_voted_roll_ids(bio_id)
+    party = determine_party(bio_id)
+    ppos = determine_ppos(party)
+    match_count = get_vote_match_count(ary,ppos)
+    if mocvts > 0
+      percentage = (match_count * 100) / mocvts  
+    else
+      percentage = 0
+    end
+  end
+
+  def self.calculate_yea_votes(bio_id)
+    yea = Vote.where("#{bio_id} = ? AND pertinent_vote = ?", "Yea", "true").pluck(bio_id)
+    return yea.count
+  end
+
+  def self.calculate_nay_votes(bio_id)
+    nay = Vote.where("#{bio_id} = ? AND pertinent_vote = ?", "Nay", "true").pluck(bio_id)
+    return nay.count
+  end
+
+  def self.calculate_bipartisan_yea_votes(bio_id)
+    chamber = determine_chamber(bio_id)
+    hsh = get_pointed_votes(bio_id)
+    ary = hsh.keys
+    i = 0
+    ary.each do |b|
+      obj = Vote.find_by("chamber = ? AND bill_id = ? AND pertinent_vote = ?", "#{chamber}", "#{b}", "true").send("#{bio_id}")
+      if obj == "Yea"
+        i +=1
+      end
+    end
+    return i
+  end
+
+  def self.calculate_bipartisan_nay_votes(bio_id)
+    chamber = determine_chamber(bio_id)
+    hsh = get_pointed_votes(bio_id)
+    ary = hsh.keys
+    i = 0
+    ary.each do |b|
+      obj = Vote.find_by("chamber = ? AND bill_id = ? AND pertinent_vote = ?", "#{chamber}", "#{b}", "true").send("#{bio_id}")
+      if obj == "Nay"
+        i +=1
+      end
+    end
+    return i
+  end
+
+  def self.calculate_bipartisan_votes(bio_id)
+    hsh = get_pointed_votes(bio_id)
+    return hsh.count
+  end
+
+def self.calculate_effective_bipartisan_votes(bio_id)
+    chamber = determine_chamber(bio_id)
+    hsh = get_pointed_votes(bio_id)
+    ary = hsh.keys
+    i = 0
+    ary.each do |b|
+      mocvote = Vote.find_by("bill_id = ? AND chamber = ? AND pertinent_vote = ?", "#{b}", "#{chamber}", "true").send("#{bio_id}")
+      result = Billscore.find_by("bill_id = ? AND chamber = ?", "#{b}", "#{chamber}").result
+      voteresult = determine_voteresult(result)
+      if mocvote == voteresult
+        i +=1
+      end
+    end
+    return i
+  end
+    
+  def self.chamberparty_count(chamberparty)  
+    count = Legislatorscore.where("chamberparty = ?", "#{chamberparty}").count
+  end
+
+  def self.chamberparty_rank(chamberparty,mocscore)
+    array = Legislatorscore.where("chamberparty = ?", "#{chamberparty}").pluck('mocscore')
+    array.sort!.reverse!
+    rank = array.index(mocscore) + 1 
+  end 
+
 end

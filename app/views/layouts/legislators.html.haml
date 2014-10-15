@@ -8,8 +8,13 @@
     = javascript_include_tag 'vendor/modernizr'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body  
+  %body
+  .backg
     %header
       = render 'layouts/navigation'   
       = render 'layouts/messages'
-    = yield
+      .row
+        .small-3.columns{ :style => "padding-left: 0;" }
+          .sub
+            Legislators 
+      = yield

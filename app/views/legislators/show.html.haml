@@ -1,42 +1,67 @@
-.row
-  
-  %h2
+.row.contain
+  %h3
     = @legislator.title
     = @legislator.first_name
     = @legislator.last_name
     = surround "(", ")" do
       = succeed "," do
         = @legislator.party      
-      = @legislator.state    
-
-  
-  .small-3.columns    
-    :erb
-      <img src="http://theunitedstates.io/images/congress/225x275/<%=@legislator.bioguide_id.upcase%>.jpg">
-  .small-9.columns
-    .panel.callout
-      .row
-        Bipartisan Score:
-      .row
-      = @legislator.legislatorscore.bipartisanscore
-      .row
-        Ranked
-        = @chamberparty_rank.ordinalize
-        most bipartisan out of
-        = @chamberparty_count
+      = @legislator.state   
+.row.contain
+  .small-3.columns{ :style => "padding-left: 0;" }
+    .legislatorPanel
+      = image_tag photo_url(@legislator.bioguide_id) 
+  .small-2.columns
+    .row
+      .scorePanel        
+        Bipartisan Score:        
+        .score
+          = @legislator.legislatorscore.bipartisanscore
+    .row
+      .rankPanel
+        Rank:
+        .rank
+          = @legislator.legislatorscore.chamberparty_rank.ordinalize
+        of 
+        = @legislator.legislatorscore.chamberparty_count
         = @chamberparty_descriptor
-.row
-  .small-12.columns
-  .panel.callout
-    Oh Hey!
-.row
-  .small-12.columns
+  .small-7.columns{ :style => "padding-right: 0;" }
+    .legislatorPanel
+      = succeed "." do
+        = @legislator.title
+      = @legislator.last_name
+      votes with the majority of 
+      = @chamberparty_descriptor 
+      = succeed "%" do
+        = @legislator.legislatorscore.party_percentage
+      of the time.
+      = gender_descriptor(@legislator.bioguide_id).capitalize      
+      has cast 
+      = @legislator.legislatorscore.mocvts
+      pertinent roll votes in the current session.
+      = gender_descriptor(@legislator.bioguide_id).capitalize
+      has accumulated
+      = @legislator.legislatorscore.mocpts
+      Bipartisan points on
+      = @bill_array.count
+      Bipartisan votes.
+      The
+      = @bill_array.count
+      Bipartisan votes consist of
+      = @legislator.legislatorscore.bipartisan_yea_votes
+      Yea votes and
+      = @legislator.legislatorscore.bipartisan_nay_votes
+      Nay votes.
+      = @legislator.legislatorscore.effective_bipartisan_votes
+      of those bipartisan votes have been effective (where the vote matched the outcome of the bill).
+.row.contain
   %h3 
     Significant Bipartisan Votes for 
     = @legislator.title
     = @legislator.last_name
     = succeed ":" do
       = surround "(", ")" do
-        = @bill_array.count    
-.row
+        = @bill_array.count   
+.row.contain
   = render :partial => "top_grid"
+          

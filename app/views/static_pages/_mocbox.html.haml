@@ -6,8 +6,8 @@
     = surround "(", ")" do
       = succeed "," do
         = @m.legislator.party      
-      = @m.legislator.state 
-    :erb
-      <img src="<%= photo_url(@m.bioguide_id) %>">
+      = @m.legislator.state     
+    = link_to legislator_path(@m.legislator) do 
+      = image_tag photo_url(@m.bioguide_id) 
     BipartisanScore: 
     = @m.bipartisanscore
