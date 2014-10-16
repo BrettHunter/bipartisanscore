@@ -358,4 +358,30 @@ def self.calculate_effective_bipartisan_votes(bio_id)
     rank = array.index(mocscore) + 1 
   end 
 
+  def self.average_bipartisan_votes(chamberparty)
+    arr = Legislatorscore.where("chamberparty = ?", "#{chamberparty}").pluck('bipartisan_votes')
+    avg = arr.inject(:+) / arr.size
+  end
+  
+  def self.average_bipartisan_points(chamberparty)
+    arr = Legislatorscore.where("chamberparty = ?", "#{chamberparty}").pluck('mocpts')
+    avg = arr.inject(:+) / arr.size
+  end
+  
+  def self.average_party_percentage(chamberparty)
+    arr = Legislatorscore.where("chamberparty = ?", "#{chamberparty}").pluck('party_percentage')
+    avg = arr.inject(:+) / arr.size
+  end
+
+  def self.average_yea_votes(chamberparty)
+    arr = Legislatorscore.where("chamberparty = ?", "#{chamberparty}").pluck('yea_votes')
+    avg = arr.inject(:+) / arr.size
+  end
+  
+  def self.average_nay_votes(chamberparty)
+    arr = Legislatorscore.where("chamberparty = ?", "#{chamberparty}").pluck('nay_votes')
+    avg = arr.inject(:+) / arr.size
+  end
+    
+
 end

@@ -1,21 +1,23 @@
-<%# show_filters: :when_filtered %>
-<%= grid(@legislators_grid) do |g|
+<%= define_grid(@legislators_grid, hide_submit_button: true, hide_reset_button: true, 
+  html: {class: 'legislator-grid'}, header_tr_html:  {class: 'legislator-grid-header'}) do |g|
 
-  g.column name:  'Member', attribute: 'first_name' do |legislator|
-    link_to "#{legislator.title} #{legislator.first_name} #{legislator.last_name}", legislator_path(legislator.id) 
+  g.column name:  'Member' do |legislator|
+    link_to "#{legislator.title} #{legislator.first_name} #{legislator.last_name}", legislator_path(legislator.id)
   end
   
+g.column name:  'Chamber', attribute: 'chamber', custom_filter: {'House' => 'house', 'Senate' => 'senate'}, detach_with_id: :chamber_filter do |legislator|
+    legislator.chamber.capitalize
+  end
   
-  
-  g.column name:  'Party', attribute: 'party' do |legislator|
+  g.column name:  'Party', attribute: 'party', custom_filter: {'Democrat' => 'D', 'Republican' => 'R'}, detach_with_id: :party_filter do |legislator|
     legislator.party
   end
   
-  g.column name:  'State', attribute: 'state' do |legislator|
+  g.column name:  'State', attribute: 'state', custom_filter: :auto, detach_with_id: :state_filter do |legislator|
     legislator.state
   end
   
-  g.column name:  'Bipartisan Score', model: 'Legislatorscore', attribute: 'bipartisanscore' do |legislator|
+  g.column name:  'Bipartisan Score' do |legislator|
     legislator.legislatorscore.bipartisanscore
   end
   

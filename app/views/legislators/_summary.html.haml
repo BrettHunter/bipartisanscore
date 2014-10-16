@@ -1,0 +1,34 @@
+.legislatorPanel
+  Bipartisan Summary:
+  %br
+  = succeed "." do
+    = @legislator.title
+  = @legislator.last_name
+  votes with the majority of 
+  = @chamberparty_descriptor 
+  = succeed "%" do
+    = @legislator.legislatorscore.party_percentage
+  of the time.
+  = gender_descriptor(@legislator.bioguide_id).capitalize      
+  has cast 
+  = @legislator.legislatorscore.mocvts
+  pertinent roll votes in the current session.
+  = gender_descriptor(@legislator.bioguide_id).capitalize
+  has accumulated
+  = number_with_delimiter(@legislator.legislatorscore.mocpts, :delimiter => ',')
+  BipartisanScore points on
+  = @bill_array.count
+  bipartisan votes.
+  The
+  = @bill_array.count
+  bipartisan votes consist of
+  = @legislator.legislatorscore.bipartisan_yea_votes
+  Yea 
+  = "vote".pluralize(@legislator.legislatorscore.bipartisan_yea_votes)
+  and
+  = @legislator.legislatorscore.bipartisan_nay_votes
+  Nay 
+  = succeed "." do
+    = "vote".pluralize(@legislator.legislatorscore.bipartisan_nay_votes)
+  = @legislator.legislatorscore.effective_bipartisan_votes
+  of those bipartisan votes have been effective (where the member vote matched the outcome of the chamber vote).

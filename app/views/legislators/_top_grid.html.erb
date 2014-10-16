@@ -4,27 +4,31 @@
    (link_to "#{bill.bill_id}", bill_path(bill.id))       
   end
   
-  g.column name:  "#{@legislator.title} #{@legislator.last_name}'s Vote", model: 'Vote', attribute: "#{@legislator.bioguide_id}" do |bill|
+  g.column name:  'Question' do |bill|
+    Vote.find_by(bill_id: bill.bill_id, pertinent_vote: "true", chamber: "#{@legislator_chamber}").question
+  end
+  
+  g.column name:  "#{@legislator.title} #{@legislator.last_name}'s Vote" do |bill|
     Vote.find_by(bill_id: bill.bill_id, pertinent_vote: "true", chamber: "#{@legislator_chamber}").send("#{@legislator.bioguide_id}")
   end
   
-  g.column name:  'Republican Position', model: 'Billscore', attribute: "rpos" do |bill|
+  g.column name:  'Republican Position' do |bill|
     Billscore.find_by(bill_id: bill.bill_id, chamber: "#{@legislator_chamber}").rpos
   end
   
-  g.column name:  'Democrat Position', model: 'Billscore', attribute: "dpos" do |bill|
+  g.column name:  'Democrat Position' do |bill|
     Billscore.find_by(bill_id: bill.bill_id, chamber: "#{@legislator_chamber}").dpos
   end
   
-  g.column name:  'Vote Result', model: 'Billscore', attribute: "result" do |bill|
+  g.column name:  'Vote Result' do |bill|
     Billscore.find_by(bill_id: bill.bill_id, chamber: "#{@legislator_chamber}").result
   end
   
-  g.column name:  'Opposition Factor', model: 'Billscore', attribute: "pscore" do |bill|
+  g.column name:  'Opposition Factor' do |bill|
     Billscore.find_by(bill_id: bill.bill_id, chamber: "#{@legislator_chamber}").pscore
   end
   
-  g.column name:  'Bipartisan Points', model: 'Legislatorscore',  attribute: "each_vote_points" do|bill|
+  g.column name:  'Bipartisan Points' do|bill|
     @point_array["#{bill.bill_id}"]     
   end
   

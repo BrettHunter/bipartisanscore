@@ -1,2 +1,46 @@
-%h1 Legislators
-= render :partial => "grid"
+.row.contain
+  .centered
+    %h3
+      BipartisanScore Legislator Metadata
+  = render :partial => 'meta', :locals => { :@senate_democrats => @senate_democrats,
+  :@senate_republicans => @senate_republicans, :@house_democrats => @house_democrats,
+  :@house_republicans => @house_republicans, :@senate_democrat_bp_votes => @senate_democrat_bp_votes,
+  :@senate_republican_bp_votes => @senate_republican_bp_votes, :@house_democrat_bp_votes => @house_democrat_bp_votes,
+  :@house_republican_bp_votes => @house_republican_bp_votes, :@senate_democrat_bp_points => @senate_democrat_bp_points,
+  :@senate_republican_bp_points => @senate_republican_bp_points, :@house_democrat_bp_points => @house_democrat_bp_points,
+  :@house_republican_bp_points => @house_republican_bp_points, :@senate_democrat_party_percentage => @senate_democrat_party_percentage,
+  :@senate_republican_party_percentage => @senate_republican_party_percentage, :@house_democrat_party_percentage => @house_democrat_party_percentage,
+  :@house_republican_party_percentage => @house_republican_party_percentage, :@senate_democrat_yea_votes => @senate_democrat_yea_votes,
+  :@senate_republican_yea_votes => @senate_republican_yea_votes, :@house_democrat_yea_votes => @house_democrat_yea_votes,
+  :@house_republican_yea_votes => @house_republican_yea_votes, :@senate_democrat_nay_votes => @senate_democrat_nay_votes,
+  :@senate_republican_nay_votes => @senate_republican_nay_votes, :@house_democrat_nay_votes => @house_democrat_nay_votes,
+  :@house_republican_nay_votes => @house_republican_nay_votes}  
+.row.contain
+  .small-12.columns
+    .legislatorTable
+      = render :partial => "grid"
+.row.contain
+  .legislatorFilter
+    .small-9.small-centered.columns
+      .small-1.columns.legislatorFilter
+        .legislatorFilterLabel
+          Chamber:
+      .small-2.columns.legislatorFilter
+        .legislatorFilterInput
+          = grid_filter @legislators_grid, :chamber_filter 
+      .small-1.columns.legislatorFilter
+        .legislatorFilterLabel
+          Party:
+      .small-2.columns.legislatorFilter
+        .legislatorFilterInput
+          = grid_filter @legislators_grid, :party_filter 
+      .small-1.columns.legislatorFilter
+        .legislatorFilterLabel
+          State:
+      .small-2.columns.end
+        .legislatorFilterInput
+          = grid_filter @legislators_grid, :state_filter 
+.row.contain
+  .small-12.columns
+    .legislatorTable
+      = render_grid(@legislators_grid)

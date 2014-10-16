@@ -1,0 +1,81 @@
+.small-12.columns.metaPanel  
+  .small-4.columns.chamberpanel    
+    .row
+      .centered
+        Senate
+    .row      
+      Democrats / Republicans
+    .row.highlight
+      = succeed " / " do
+        = @senate_democrats      
+      = @senate_republicans
+    .row
+      = succeed " / " do
+        = @senate_democrat_bp_votes      
+      = @senate_republican_bp_votes
+    .row.highlight
+      = succeed " / " do
+        = @senate_democrat_bp_points      
+      = @senate_republican_bp_points
+    .row
+      = succeed " / " do
+        = @senate_democrat_party_percentage      
+      = @senate_republican_party_percentage
+    .row.highlight
+      = succeed " / " do
+        = @senate_democrat_yea_votes     
+      = @senate_republican_yea_votes
+    .row
+      = succeed " / " do
+        = @senate_democrat_nay_votes     
+      = @senate_republican_nay_votes
+      
+        
+  .small-4.columns.centerPanel  
+    .row
+      %br
+    .row
+      %br
+    .row.highlight
+      Members
+    .row
+      Avg. bipartisan votes per mbr.
+    .row.highlight
+      Avg. bipartisan points per mbr. 
+    .row
+      Avg. % votes w/ party 
+    .row.highlight
+      Avg. no. of total 'Yea' votes 
+    .row
+      Avg. no. of total 'Nay' votes 
+      
+  .small-4.columns.chamberPanel    
+    .row
+      .centered
+        House
+    .row      
+      Democrats / Republicans
+    .row.highlight
+      = succeed " / " do
+        = @house_democrats      
+      = @house_republicans
+    .row
+      = succeed " / " do
+        = @house_democrat_bp_votes      
+      = @house_republican_bp_votes
+    .row.highlight
+      = succeed " / " do
+        = @house_democrat_bp_points      
+      = @house_republican_bp_points
+    .row
+      = succeed " / " do
+        = @house_democrat_party_percentage      
+      = @house_republican_party_percentage
+    .row.highlight
+      = succeed " / " do
+        = @house_democrat_yea_votes     
+      = @house_republican_yea_votes
+    .row
+      = succeed " / " do
+        = @house_democrat_nay_votes     
+      = @house_republican_nay_votes

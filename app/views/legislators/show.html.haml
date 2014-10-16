@@ -26,34 +26,7 @@
         = @legislator.legislatorscore.chamberparty_count
         = @chamberparty_descriptor
   .small-7.columns{ :style => "padding-right: 0;" }
-    .legislatorPanel
-      = succeed "." do
-        = @legislator.title
-      = @legislator.last_name
-      votes with the majority of 
-      = @chamberparty_descriptor 
-      = succeed "%" do
-        = @legislator.legislatorscore.party_percentage
-      of the time.
-      = gender_descriptor(@legislator.bioguide_id).capitalize      
-      has cast 
-      = @legislator.legislatorscore.mocvts
-      pertinent roll votes in the current session.
-      = gender_descriptor(@legislator.bioguide_id).capitalize
-      has accumulated
-      = @legislator.legislatorscore.mocpts
-      Bipartisan points on
-      = @bill_array.count
-      Bipartisan votes.
-      The
-      = @bill_array.count
-      Bipartisan votes consist of
-      = @legislator.legislatorscore.bipartisan_yea_votes
-      Yea votes and
-      = @legislator.legislatorscore.bipartisan_nay_votes
-      Nay votes.
-      = @legislator.legislatorscore.effective_bipartisan_votes
-      of those bipartisan votes have been effective (where the vote matched the outcome of the bill).
+    = render :partial => 'summary', :locals => { :@legislator => @legislator } 
 .row.contain
   %h3 
     Significant Bipartisan Votes for 

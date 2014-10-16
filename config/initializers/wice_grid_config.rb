@@ -21,13 +21,13 @@ if defined?(Wice::Defaults)
   Wice::Defaults::DEFAULT_TABLE_CLASSES = ['table', 'table-bordered', 'table-striped']
 
   # Allow switching between a single and multiple selection modes in custom filters (dropdown boxes)
-  Wice::Defaults::ALLOW_MULTIPLE_SELECTION = true
+  Wice::Defaults::ALLOW_MULTIPLE_SELECTION = false
 
   # Show the upper pagination panel by default or not
   Wice::Defaults::SHOW_UPPER_PAGINATION_PANEL = false
 
   # Disabling CSV export by default
-  Wice::Defaults::ENABLE_EXPORT_TO_CSV = true
+  Wice::Defaults::ENABLE_EXPORT_TO_CSV = false
   # Default CSV field separator
   Wice::Defaults::CSV_FIELD_SEPARATOR = ','
 
@@ -39,7 +39,7 @@ if defined?(Wice::Defaults)
   Wice::Defaults::SHOW_FILTER = :always
 
   # A boolean value specifying if a change in a filter triggers reloading of the grid.
-  Wice::Defaults::AUTO_RELOAD = false
+  Wice::Defaults::AUTO_RELOAD = true
 
 
   # SQL operator used for matching strings in string filters.

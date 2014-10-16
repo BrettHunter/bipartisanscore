@@ -9,6 +9,30 @@ class LegislatorsController < ApplicationController
       order: 'legislatorscores.bipartisanscore',
       order_direction: 'desc',
       )
+    @senate_democrats = Legislator.where("in_office = ? AND chamber = ? AND party = ?", "t", "senate", "D").count
+    @senate_republicans = Legislator.where("in_office = ? AND chamber = ? AND party = ?", "t", "senate", "R").count
+    @house_democrats = Legislator.where("in_office = ? AND chamber = ? AND party = ?", "t", "house", "D").count
+    @house_republicans = Legislator.where("in_office = ? AND chamber = ? AND party = ?", "t", "house", "R").count
+    @senate_democrat_bp_votes = Legislatorscore.average_bipartisan_votes("dem_senate")
+    @senate_republican_bp_votes = Legislatorscore.average_bipartisan_votes("rep_senate")
+    @house_democrat_bp_votes = Legislatorscore.average_bipartisan_votes("dem_house")
+    @house_republican_bp_votes = Legislatorscore.average_bipartisan_votes("rep_house")
+    @senate_democrat_bp_points = Legislatorscore.average_bipartisan_points("dem_senate")
+    @senate_republican_bp_points = Legislatorscore.average_bipartisan_points("rep_senate")
+    @house_democrat_bp_points = Legislatorscore.average_bipartisan_points("dem_house")
+    @house_republican_bp_points = Legislatorscore.average_bipartisan_points("rep_house")
+    @senate_democrat_party_percentage = Legislatorscore.average_party_percentage("dem_senate")
+    @senate_republican_party_percentage = Legislatorscore.average_party_percentage("rep_senate")
+    @house_democrat_party_percentage = Legislatorscore.average_party_percentage("dem_house")
+    @house_republican_party_percentage = Legislatorscore.average_party_percentage("rep_house")
+    @senate_democrat_yea_votes = Legislatorscore.average_yea_votes("dem_senate")
+    @senate_republican_yea_votes = Legislatorscore.average_yea_votes("rep_senate")
+    @house_democrat_yea_votes = Legislatorscore.average_yea_votes("dem_house")
+    @house_republican_yea_votes = Legislatorscore.average_yea_votes("rep_house")
+    @senate_democrat_nay_votes = Legislatorscore.average_nay_votes("dem_senate")
+    @senate_republican_nay_votes = Legislatorscore.average_nay_votes("rep_senate")
+    @house_democrat_nay_votes = Legislatorscore.average_nay_votes("dem_house")
+    @house_republican_nay_votes = Legislatorscore.average_nay_votes("rep_house")
   end
   def show
     @legislator = Legislator.find(params[:id])
