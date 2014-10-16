@@ -21,25 +21,7 @@
       = render :partial => "grid"
 .row.contain
   .legislatorFilter
-    .small-9.small-centered.columns
-      .small-1.columns.legislatorFilter
-        .legislatorFilterLabel
-          Chamber:
-      .small-2.columns.legislatorFilter
-        .legislatorFilterInput
-          = grid_filter @legislators_grid, :chamber_filter 
-      .small-1.columns.legislatorFilter
-        .legislatorFilterLabel
-          Party:
-      .small-2.columns.legislatorFilter
-        .legislatorFilterInput
-          = grid_filter @legislators_grid, :party_filter 
-      .small-1.columns.legislatorFilter
-        .legislatorFilterLabel
-          State:
-      .small-2.columns.end
-        .legislatorFilterInput
-          = grid_filter @legislators_grid, :state_filter 
+    = render :partial => "filter" 
 .row.contain
   .small-12.columns
     .legislatorTable

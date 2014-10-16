@@ -1,0 +1,15 @@
+.small-9.small-centered.columns
+  .small-2.small-offset-1.columns
+    Chamber:
+  .small-2.columns
+    = grid_filter @legislators_grid, :chamber_filter
+  .small-1.columns
+    Party: 
+  .small-2.columns
+    = grid_filter @legislators_grid, :party_filter
+  .small-1.columns
+    State:    
+  .small-2.end.columns
+    = grid_filter @legislators_grid, :state_filter     
+      
+      

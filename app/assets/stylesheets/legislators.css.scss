@@ -81,14 +81,14 @@
 }
 
 .legislatorFilter{
-  vertical-align: middle;  
+  vertical-align: middle;
+  width: 100%;
+  height: 58px;
+  line-height: 35px;
+  text-align: right;
 }
 
-.legislatorFilterLabel{
-  vertical-align: middle;
-  text-align: right;
-     
-}
+
 
 table.legislator-grid td {
   text-align: center;
@@ -141,4 +141,9 @@ tr.legislator-grid-header th {
 
 .highlight{
   background-color: rgba(0,0,0,0.1)
+}
+
+.custom-dropdown-container{
+  vertical-align: middle;
+  width: 100%;
 }
