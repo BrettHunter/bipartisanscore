@@ -1,10 +1,4 @@
-last_vote_update_time = Legislatorscore.get_last_vote_update_time()
-  last_legislatorscore_update_time = Legislatorscore.get_last_legislatorscore_update_time() 
-  if last_legislatorscore_update_time == nil
-    
-    elsif last_legislatorscore_update_time > last_vote_update_time    
-    abort("No updated Votes!")    
-  end   
+
   
 i = 0
 leg = Legislator.all.pluck('bioguide_id')
