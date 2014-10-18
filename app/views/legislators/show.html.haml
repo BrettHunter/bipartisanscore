@@ -13,13 +13,15 @@
       = image_tag photo_url(@legislator.bioguide_id) 
   .small-2.columns
     .row
-      .scorePanel        
-        Bipartisan Score:        
+      .scorePanel
+        .highlight
+          Bipartisan Score:        
         .score
           = @legislator.legislatorscore.bipartisanscore
     .row
       .rankPanel
-        Rank:
+        .highlight
+          Rank:
         .rank
           = @legislator.legislatorscore.chamberparty_rank.ordinalize
         of 
@@ -28,7 +30,7 @@
   .small-7.columns{ :style => "padding-right: 0;" }
     = render :partial => 'summary', :locals => { :@legislator => @legislator } 
 .row.contain
-  %h3 
+  %h3.highlight 
     Significant Bipartisan Votes for 
     = @legislator.title
     = @legislator.last_name

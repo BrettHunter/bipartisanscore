@@ -1,7 +1,7 @@
 .row.contain
-  .centered
+  .centered.highlight
     %h3
-      BipartisanScore Legislator Metadata
+      BipartisanScore Legislator Summary:
   = render :partial => 'meta', :locals => { :@senate_democrats => @senate_democrats,
   :@senate_republicans => @senate_republicans, :@house_democrats => @house_democrats,
   :@house_republicans => @house_republicans, :@senate_democrat_bp_votes => @senate_democrat_bp_votes,
@@ -15,6 +15,11 @@
   :@house_republican_yea_votes => @house_republican_yea_votes, :@senate_democrat_nay_votes => @senate_democrat_nay_votes,
   :@senate_republican_nay_votes => @senate_republican_nay_votes, :@house_democrat_nay_votes => @house_democrat_nay_votes,
   :@house_republican_nay_votes => @house_republican_nay_votes}  
+.row.contain
+  .centered.highlight
+    %h3
+      Browse and Filter Active Legislators:
+      %br
 .row.contain
   .small-12.columns
     .legislatorTable

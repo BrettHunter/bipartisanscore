@@ -1,2 +1,16 @@
-%h1 Bills
-= render :partial => "grid"
+.row.contain
+  .centered.highlight
+    %h3
+      Browse and Filter Congressional Legislation:
+      %br
+.row.contain
+  .small-12.columns
+    .legislatorTable
+      = render :partial => "grid"
+.row.contain
+  .legislatorFilter
+    = render :partial => "filter" 
+.row.contain
+  .small-12.columns
+    .legislatorTable
+      = render_grid(@bills_grid)

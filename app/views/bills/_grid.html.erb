@@ -1,5 +1,5 @@
 
-<%= grid(@bills_grid) do |g|
+<%= define_grid(@bills_grid) do |g|
 
   g.column name:  'Bill ID' do |bill|
     link_to "#{bill.bill_id}", bill_path(bill.id) 
@@ -9,11 +9,11 @@
     bill.last_action_at.to_date
   end
   
-  g.column name:  'Chamber'  do |bill|
+  g.column name:  'Chamber', attribute: 'chamber', custom_filter: {'House' => 'house', 'Senate' => 'senate'}, detach_with_id: :chamber_filter do |bill|
     bill.chamber.capitalize
   end
 
-  g.column  name:  'Official Title' do |bill|
+  g.column  name:  'Official Title' , attribute: "official_title", detach_with_id: :title_filter  do |bill|
     bill.official_title
   end
    
@@ -21,7 +21,7 @@
     Bill.combined_opposition_factor(bill.bill_id)
   end
 
-  g.column  name:  'Bipartisan Score', model: 'Billscore', attribute: 'global_rank' do |bill|
+  g.column  name:  'Bipartisan Score' do |bill|
     bill.billscore[0].global_rank
   end
   
