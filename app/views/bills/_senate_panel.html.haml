@@ -1,0 +1,27 @@
+%h3.highlight
+  Senate Vote Summary
+- if @billscore.blank?
+  The Senate has not voted on this Bill.
+- else
+  Question: 
+  = @question
+  %br
+  Result: 
+  %span.label
+    = @billscore[0].result
+  %br
+  = surround "(", ")" do
+    = succeed " /" do
+      = @billscore[0].yea
+      Yea votes
+    = @billscore[0].nay
+    Nay votes
+  %br
+  Republican majority position: 
+  = @billscore[0].rpos
+  %br
+  Democrat majority position: 
+  = @billscore[0].dpos
+  %br
+  Voted on:
+  = @billscore[0].voted_at.to_date

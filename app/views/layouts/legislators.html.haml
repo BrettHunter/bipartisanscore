@@ -9,12 +9,14 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-  .backg
-    %header
-      = render 'layouts/navigation'   
-      = render 'layouts/messages'
+    %script{ :src => "/js/foundation.min.js" } 
+    .backg
+      %header
+        = render 'layouts/navigation'   
+        = render 'layouts/messages'
       .row
         .small-3.columns{ :style => "padding-left: 0;" }
           .sub
             Legislators 
       = yield
+    = render 'layouts/footer'

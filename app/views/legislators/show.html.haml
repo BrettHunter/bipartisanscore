@@ -7,11 +7,11 @@
       = succeed "," do
         = @legislator.party      
       = @legislator.state   
-.row.contain
-  .small-3.columns{ :style => "padding-left: 0;" }
+.row.contain{"data-equalizer" => true}
+  .small-3.columns{ :style => "padding-left: 0;", "data-equalizer-watch" => true }
     .legislatorPanel
       = image_tag photo_url(@legislator.bioguide_id) 
-  .small-2.columns
+  .small-2.columns{"data-equalizer-watch" => true}
     .row
       .scorePanel
         .highlight
@@ -27,7 +27,7 @@
         of 
         = @legislator.legislatorscore.chamberparty_count
         = @chamberparty_descriptor
-  .small-7.columns{ :style => "padding-right: 0;" }
+  .small-7.columns{ :style => "padding-right: 0;", "data-equalizer-watch" => true}
     = render :partial => 'summary', :locals => { :@legislator => @legislator } 
 .row.contain
   %h3.highlight 

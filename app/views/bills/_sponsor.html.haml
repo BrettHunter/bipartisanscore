@@ -1,0 +1,11 @@
+= @sponsor.title
+= @sponsor.first_name
+= @sponsor.last_name
+= surround "(", ")" do
+  = succeed "," do
+    = @sponsor.party      
+  = @sponsor.state     
+= link_to legislator_path(@sponsor) do 
+  = image_tag photo_url(@sponsor.bioguide_id) 
+BipartisanScore: 
+= @sponsor.legislatorscore.bipartisanscore

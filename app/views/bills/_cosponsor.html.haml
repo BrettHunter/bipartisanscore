@@ -1,0 +1,8 @@
+- if @cosponsor != nil
+  - @cosponsor.each do |c|
+    = link_to "#{c.title}. #{c.first_name} #{c.last_name} (#{c.party}, #{c.state})", legislator_path(c.id)
+    %br
+- else
+  = puts "This bill doesn't have any cosposnors." 
+
+
