@@ -14,13 +14,13 @@
     %h2
       Most Bipartisan Senators:
     - @top_senators.each do |m|
-      = render :partial => 'mocbox', :locals => { :@m => m } 
+      = render :partial => 'mocboxwht', :locals => { :@m => m } 
 .row
   .results
     %h2
       Most Bipartisan Representatives:
     - @top_representatives.each do |m|
-      = render :partial => 'mocbox', :locals => { :@m => m } 
+      = render :partial => 'mocboxwht', :locals => { :@m => m } 
 .two
   .row
     .results

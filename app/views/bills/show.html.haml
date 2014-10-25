@@ -1,26 +1,27 @@
 .row.contain
   %h2= @bill.bill_id 
 .row.contain
-  %h3= @bill.official_title
-.row.contain{"data-equalizer" => true}  
-  .small-2.small-offset-2.columns.billScorePanel{"data-equalizer-watch" => true}
-    .highlight
-      Bipartisan Score:
-    .score
-      = @bill.billscore[0].global_rank    
-  .small-3.columns.billScorePanel{"data-equalizer-watch" => true}
-    .highlight
-      Rank:
-    .rank
-      = @bill.bill_rank(params[:id])[0].ordinalize
-    of
-    = @bill.bill_rank(params[:id])[1]
-    eligible bills.
-  .small-3.columns.end.billScorePanel{"data-equalizer-watch" => true}
-    .highlight
-      Combined Opposition Factor:
-    .score
-      = @bill.billscore[0].combined_pscore
+  .small-8.columns
+    %h3= @bill.official_title
+  .small-4.columns
+    .billScorePanel
+      .highlight
+        Bipartisan Score:
+      .score
+        = @bill.billscore[0].global_rank   
+    .billScorePanel
+      .highlight
+        Rank:
+      .rank
+        = @bill.bill_rank(params[:id])[0].ordinalize
+      of
+      = @bill.bill_rank(params[:id])[1]
+      eligible bills.
+    .billScorePanel
+      .highlight
+        Combined Opposition Factor:
+      .score
+        = @bill.billscore[0].combined_pscore      
 .row.contain
   .small-12.columns.voteSummaryPanel{"data-equalizer" => true}
     .small-6.columns.houseSummaryPanel{"data-equalizer-watch" => true}

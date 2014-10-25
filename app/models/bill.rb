@@ -3,6 +3,8 @@ require 'congress/request'
 Congress.key = '300b871e9523419988f04c02e5b80e68'
 
 class Bill < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :bill_id
   has_many :billscore, foreign_key: "bill_table_id"
   has_many :vote, foreign_key: "bill_table_id"
   serialize  :urls, JSON

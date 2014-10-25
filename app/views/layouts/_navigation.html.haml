@@ -2,8 +2,9 @@
 -# the syntax for data-topbar may need to change for Zurb Foundation 5
 %nav.top-bar{"data-topbar" => true}
   %ul.title-area
-    %li.name
-      = link_to 'BipartisanScore', root_path
+    %li
+      = link_to root_path do 
+        = image_tag("bplogo.png")
     
   .top-bar-section
     %ul.right

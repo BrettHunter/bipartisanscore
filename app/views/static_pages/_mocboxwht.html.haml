@@ -1,0 +1,13 @@
+.small-3.columns
+  .mocboxwht
+    = @m.legislator.title
+    = @m.legislator.first_name
+    = @m.legislator.last_name
+    = surround "(", ")" do
+      = succeed "," do
+        = @m.legislator.party      
+      = @m.legislator.state     
+    = link_to legislator_path(@m.legislator) do 
+      = image_tag photo_url(@m.bioguide_id) 
+    BipartisanScore: 
+    = @m.bipartisanscore
