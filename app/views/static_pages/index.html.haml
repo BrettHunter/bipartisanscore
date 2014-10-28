@@ -1,10 +1,15 @@
 .row
   .splash
-    BipartisanScore methodically measures the bipartisanship of each member of Congress and scores them accordingly
+    BipartisanScore measures bipartisanship.
+  .subsplash
+    BipartisanScore methodically evaluates and scores the bipartisanship of Congressmen and Legislation.
+  .centered
+    %a.button.tiny
+      Learn How it Works
 .search
   .row
     .centered
-      %a.button
+      %a.button{"href" => legislators_path}
         View Legislator Scores
    
 :erb
@@ -12,13 +17,13 @@
 .row
   .results
     %h2
-      Most Bipartisan Senators:
+      Top Rated Senators:
     - @top_senators.each do |m|
       = render :partial => 'mocboxwht', :locals => { :@m => m } 
 .row
   .results
     %h2
-      Most Bipartisan Representatives:
+      Top Rated Representatives:
     - @top_representatives.each do |m|
       = render :partial => 'mocboxwht', :locals => { :@m => m } 
 .two
