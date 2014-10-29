@@ -11,11 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require wice_grid
-//= require turbolinks
 //= require foundation
 //= require_tree .
+//= require turbolinks
 $(function() {
   $(document).foundation();
 });

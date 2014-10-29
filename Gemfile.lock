@@ -87,6 +87,9 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-turbolinks (2.1.0)
+      railties (>= 3.1.0)
+      turbolinks
     json (1.8.1)
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
@@ -202,6 +205,7 @@ DEPENDENCIES
   hirb (~> 0.7.1)
   jbuilder (~> 1.2)
   jquery-rails
+  jquery-turbolinks
   kaminari
   newrelic_rpm
   pg (= 0.15.1)

@@ -4,6 +4,7 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 gem 'friendly_id', '~> 5.0.0'
+gem 'jquery-turbolinks'
 
 # Use postgreSQL as the database for Active Record
 gem 'pg', '0.15.1'
