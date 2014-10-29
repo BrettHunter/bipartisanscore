@@ -10,7 +10,7 @@
   .row
     .centered
       %a.button{"href" => legislators_path}
-        View Legislator Scores
+        View All Legislator Scores
    
 :erb
   </div>
@@ -38,4 +38,9 @@
       %h2
         Least Bipartisan Representatives:
       - @bottom_representatives.each do |m|
-        = render :partial => 'mocbox', :locals => { :@m => m } 
+        = render :partial => 'mocbox', :locals => { :@m => m }
+.row
+  .centered
+    %br
+    %a.button{"href" => legislators_path}
+      View All Legislators

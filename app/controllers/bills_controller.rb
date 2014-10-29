@@ -21,7 +21,8 @@ class BillsController < ApplicationController
     @sponsor_id = @bill.sponsor_id.downcase
     @sponsor = Legislator.where("bioguide_id = ?", "#{@sponsor_id}")[0]
     @cosponsor_ids = @bill.cosponsor_ids.map(&:downcase)
-    @cosponsor = Legislator.where(bioguide_id: @cosponsor_ids)   
+    @cosponsor = Legislator.where(bioguide_id: @cosponsor_ids) 
+    @fburl = "http://#{request.original_url}"
   end
   
   def bipartisan_descriptor(bp_score)

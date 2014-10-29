@@ -45,6 +45,13 @@
           = @cosponsor_ids.count  
     .centered
     = render :partial => 'cosponsor', :locals => { :@cosponsor => @cosponsor }
+.row.contain
+  .small-12.columns
+    %h3.highlight
+      What do you think of this Bill?
+    :erb
+      <div class="fb-comments" data-href="<%= @fburl %>" data-width="100%" data-numposts="25" data-colorscheme="light"></div>
+        
   
     
     
