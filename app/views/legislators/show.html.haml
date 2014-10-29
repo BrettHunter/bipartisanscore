@@ -1,6 +1,7 @@
 .row.contain
   %h3
-    = @legislator.title
+    = succeed "." do
+      = @legislator.title
     = @legislator.first_name
     = @legislator.last_name
     = surround "(", ")" do
@@ -32,11 +33,21 @@
 .row.contain
   %h3.highlight 
     Significant Bipartisan Votes for 
-    = @legislator.title
+    = succeed "." do
+      = @legislator.title
     = @legislator.last_name
     = succeed ":" do
       = surround "(", ")" do
         = @bill_array.count   
 .row.contain
   = render :partial => "top_grid"
-          
+.row.contain
+  .small-12.columns
+    %h3.highlight
+      What do you think of 
+      = succeed "." do
+        = @legislator.title
+      = succeed "?" do 
+        = @legislator.last_name
+    :erb
+      <div class="fb-comments" data-href="<%= @fburl %>" data-width="100%" data-numposts="25" data-colorscheme="light"></div>

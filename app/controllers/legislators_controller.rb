@@ -44,7 +44,8 @@ class LegislatorsController < ApplicationController
     @chamberparty = @legislator.legislatorscore.chamberparty
     @chamberparty_count = Legislator.chamberparty_count(@chamberparty)
     @chamberparty_rank = Legislator.chamberparty_rank(@chamberparty,@legislator.legislatorscore.mocscore)
-    @chamberparty_descriptor = Legislator.chamberparty_descriptor(@chamberparty)    
+    @chamberparty_descriptor = Legislator.chamberparty_descriptor(@chamberparty) 
+    @fburl = "#{request.original_url}"
   end
   
   def photo_url(bio_id)
