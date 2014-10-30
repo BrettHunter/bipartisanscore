@@ -4,7 +4,7 @@
 
 .backg{
   width: 100%;
-  height: 60%;
+  height: 600px;
   max-width: initial;
   background-image: image-url("background.jpg") ;  
   background-position: center bottom;
@@ -14,7 +14,7 @@
 
 .splash{
   color:  #ffffff;
-  font-size: 2.5rem;
+  font-size: 3.0rem;
   font-weight: bold;
   text-shadow: 
     -2px -2px 0 #193c64,
@@ -29,7 +29,7 @@
 
 .subsplash{
   color:  #ffffff;
-  font-size: 1.25rem;
+  font-size: 1.65rem;
    text-shadow: 
     -1.5px -1.5px 0 #193c64,
      1.5px -1.5px 0 #193c64,
@@ -81,4 +81,12 @@
 
 .white{
   background-color: #ffffff;
+}
+
+.imgcontainer{
+  margin-left: auto;
+  margin-right: auto;  
+  padding-left: auto;
+  padding-right: auto;
+  width: 470px;
 }
