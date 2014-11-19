@@ -1,7 +1,7 @@
 class Vote < ActiveRecord::Base
   validates :roll_id, uniqueness: true
   scope :recent, -> { order("votes.updated_at DESC") }  
-  scope :retrieve_vote, -> { where("vote_type = ? OR vote_type = ? OR vote_type = ?", "passage", "amendment", "cloture").order("votes.voted_at DESC").first }
+  scope :retrieve_vote, -> { where("vote_type = ?", "passage").order("votes.voted_at DESC").first }
   scope :pertinent_vote, -> {where("pertinent_vote = ?", "true")}
   belongs_to :bill 
   
