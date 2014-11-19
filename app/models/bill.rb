@@ -36,12 +36,12 @@ class Bill < ActiveRecord::Base
       "summary_short", "cosponsor_ids"])    
   end
     
-  def self.create_bill(obj)
+  def self.create_bill(obj)    
     record = obj.results[0]
     Bill.create(bill_id: record.bill_id, chamber: record.chamber, congress: record.congress,
       last_action_at: record.last_action_at, official_title: record.official_title,
       popular_title: record.popular_title, short_title: record.short_title, sponsor_id: record.sponsor_id, urls: record.urls, 
-      summary: record.summary, summary_short: record.summary_short, cosponsor_ids: record.cosponsor_ids)  
+      summary: record.summary, summary_short: record.summary_short, cosponsor_ids: record.cosponsor_ids)
   end
 
   def self.update_bill(api_obj,db_obj)

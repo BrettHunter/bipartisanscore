@@ -5,11 +5,11 @@ class Billscore < ActiveRecord::Base
   scope :retrieve_vote, -> { where("result = ? OR result = ? OR result = ?", "Passed", "Bill Passed", "Failed").order("billscores.voted_at DESC").first }
   scope :pertinent_vote, -> {where("pertinent_vote = ?", "true")}
   
-  def self.get_last_vote_update_time()
+  def self.get_last_vote_update_time
     update = Vote.recent.first.updated_at    
   end
     
-  def self.get_last_billscore_update_time()
+  def self.get_last_billscore_update_time
     update = Billscore.recent.first.updated_at    
   end
     

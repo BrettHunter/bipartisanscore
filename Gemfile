@@ -39,14 +39,15 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
+group :development, :test do
   
   gem "better_errors"
   gem "binding_of_caller"
   gem 'rspec-rails', '~> 3.0.0'  
   gem 'bullet'
-  gem 'rack-mini-profiler'
   gem 'factory_girl_rails'
+  gem 'spring'
+  gem 'spring-commands-rspec'
   
  
 end
@@ -57,9 +58,7 @@ group :production do
   
 end
 
-group :test do
 
-end
 
 gem 'newrelic_rpm'
 # Use ActiveModel has_secure_password
