@@ -21,9 +21,9 @@ until Vote.get_db_vote_count == api_vote_count do
        roll_type: roll_type, question: question)
      record = Vote.find_by(roll_id: roll_id)
      apirecord.voter_ids.keys.each do |id|        
-     v = id
-     id.upcase
-     record.update("#{id}".upcase => apirecord.voter_ids[v])        
+       v = id
+      
+       record.update("#{id}".upcase => apirecord.voter_ids[v])        
      end
      puts "Vote record updated for #{roll_id} #{bill_id}"
   else

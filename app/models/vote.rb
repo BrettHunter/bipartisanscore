@@ -1,3 +1,7 @@
+require 'congress/connection'
+require 'congress/request'
+Congress.key = '300b871e9523419988f04c02e5b80e68'
+
 class Vote < ActiveRecord::Base
   validates :roll_id, uniqueness: true
   scope :recent, -> { order("votes.updated_at DESC") }  
