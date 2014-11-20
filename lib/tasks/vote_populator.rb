@@ -23,7 +23,7 @@ until Vote.get_db_vote_count == api_vote_count do
      apirecord.voter_ids.keys.each do |id|        
        v = id
       
-       record.update("#{id}".upcase => apirecord.voter_ids[v])        
+       record.update("#{id}" => apirecord.voter_ids[v])        
      end
      puts "Vote record updated for #{roll_id} #{bill_id}"
   else
