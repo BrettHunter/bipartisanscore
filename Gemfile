@@ -46,8 +46,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'  
   gem 'bullet'
   gem 'factory_girl_rails'
-  gem 'spring'
-  gem 'spring-commands-rspec'
+  
   
  
 end

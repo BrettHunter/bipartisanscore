@@ -261,7 +261,7 @@ class Legislatorscore < ActiveRecord::Base
   end
   
   def self.get_voted_roll_ids(bio_id)
-    ary = Vote.where("#{bio_id} = ? OR #{bio_id} = ? AND pertinent_vote = ?", "Yea", "Nay", "true").pluck(:roll_id , :"#{bio_id}")
+    ary = Vote.where("pertinent_vote = ? AND #{bio_id} = ? OR #{bio_id} = ? ", "true", "Yea", "Nay").pluck(:roll_id , :"#{bio_id}")
   end
   
   def self.get_vote_match_count(ary,ppos)
@@ -281,7 +281,7 @@ class Legislatorscore < ActiveRecord::Base
     ary = get_voted_roll_ids(bio_id)
     party = determine_party(bio_id)
     ppos = determine_ppos(party)
-    match_count = get_vote_match_count(ary,ppos)
+    match_count = get_vote_match_count(ary,ppos)    
     if mocvts > 0
       percentage = (match_count * 100) / mocvts  
     else
