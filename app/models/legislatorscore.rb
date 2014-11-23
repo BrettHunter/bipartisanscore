@@ -261,7 +261,7 @@ class Legislatorscore < ActiveRecord::Base
   end
   
   def self.get_voted_roll_ids(bio_id)
-    ary = Vote.where("pertinent_vote = ? AND #{bio_id} = ? OR #{bio_id} = ? ", "true", "Yea", "Nay").pluck(:roll_id , :"#{bio_id}")
+    ary = Vote.where("pertinent_vote = ? AND #{bio_id} != ?", "true", "nil").pluck(:roll_id , :"#{bio_id}")
   end
   
   def self.get_vote_match_count(ary,ppos)
