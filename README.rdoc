@@ -2,5 +2,5 @@
 
 This is the public repository for BipartisanScore.org, an open web application that seeks to objectively rate all members of Congress based on their bipartisan actions.  
 
-Visit the BipartisanScore <a href="http://bipartisanscore.org/methodology/">methodology</a> page to get a better idea for how it works.
+Visit the BipartisanScore Methodology page to learn more about how it works: http://bipartisanscore.org/methodology/ 
 
