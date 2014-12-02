@@ -50,4 +50,20 @@ class Bill < ActiveRecord::Base
       summary: api_record.summary, summary_short: api_record.summary_short, cosponsor_ids: api_record.cosponsor_ids)
   end   
   
+  def bill_rank(id)
+    bill = Bill.find_by(id: id)
+    rel = bill.billscore.count
+    factor = bill.billscore.first.combined_pscore
+    array = Billscore.where("chamber = ?", bill.billscore.first.chamber).pluck('combined_pscore')
+    array.sort!
+    rank = array.index(factor) + 1 
+    count = array.count
+  return rank, count
+  end
+  
+   def self.combined_opposition_factor(bill_id)
+    ary = Billscore.where(bill_id: bill_id).pluck('pscore')
+    factor = ary.inject(:+)    
+  end
+  
 end
