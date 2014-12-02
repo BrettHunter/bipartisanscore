@@ -3,25 +3,20 @@
 .row.contain
   .small-8.columns
     %h3= @bill.official_title
-  .small-4.columns
-    .billScorePanel
-      .highlight
-        Bipartisan Score:
-      .score
-        = @bill.billscore[0].global_rank   
-    .billScorePanel
-      .highlight
-        Rank:
-      .rank
-        = @bill.bill_rank(params[:id])[0].ordinalize
-      of
-      = @bill.bill_rank(params[:id])[1]
-      eligible bills.
+  .small-4.columns   
     .billScorePanel
       .highlight
         Combined Opposition Factor:
       .score
-        = @bill.billscore[0].combined_pscore      
+        = @bill.billscore[0].combined_pscore 
+    .billScorePanel
+      .highlight
+        Rank:
+      .rank
+        = @bill.billscore[0].bill_rank(params[:id])[0].ordinalize
+      of
+      = @bill.billscore[0].bill_rank(params[:id])[1]
+      eligible bills.
 .row.contain
   .small-12.columns.voteSummaryPanel{"data-equalizer" => true}
     .small-6.columns.houseSummaryPanel{"data-equalizer-watch" => true}

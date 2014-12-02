@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
-gem 'friendly_id', '~> 5.0.0'
 gem 'jquery-turbolinks'
 gem 'pg', '0.15.1'
 gem 'sass-rails', '4.0.2'
@@ -19,7 +18,6 @@ gem "table_print", "~> 1.0.0"
 gem 'hirb', '~> 0.7.1'
 gem 'foundation-rails'
 gem "wice_grid", '3.4.2'
-gem 'newrelic_rpm'
 gem 'unicorn'
 
 

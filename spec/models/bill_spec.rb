@@ -28,10 +28,10 @@ describe Bill do
   end
   
   describe "#create_bill" do    
-    it "should create mew Bill record" do       
+    it "should create new Bill record" do       
       object = Bill.get_bill_from_api(1)      
       expect{Bill.create_bill(object)}.to change(Bill, :count).by(1)
     end   
-  end
+  end  
   
 end

@@ -1,7 +1,7 @@
 .small-3.columns
   .mocbox
-    = @m.legislator.title
-    = @m.legislator.first_name
+    = succeed "." do
+      = @m.legislator.title    
     = @m.legislator.last_name
     = surround "(", ")" do
       = succeed "," do

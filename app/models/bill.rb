@@ -3,8 +3,6 @@ require 'congress/request'
 Congress.key = '300b871e9523419988f04c02e5b80e68'
 
 class Bill < ActiveRecord::Base
-  extend FriendlyId
-  friendly_id :bill_id
   has_many :billscore, foreign_key: "bill_table_id"
   has_many :vote, foreign_key: "bill_table_id"
   serialize  :urls, JSON
@@ -50,23 +48,6 @@ class Bill < ActiveRecord::Base
       last_action_at: api_record.last_action_at, official_title: api_record.official_title,
       popular_title: api_record.popular_title, short_title: api_record.short_title, sponsor_id: api_record.sponsor_id, urls: api_record.urls, 
       summary: api_record.summary, summary_short: api_record.summary_short, cosponsor_ids: api_record.cosponsor_ids)
-  end  
-  
-  def self.combined_opposition_factor(bill_id)
-    ary = Billscore.where(bill_id: bill_id).pluck('pscore')
-    factor = ary.inject(:+)    
-  end
- 
-  def bill_rank(id)
-    bill = Bill.find_by(id: id)
-    rel = bill.billscore.count
-    factor = bill.billscore.first.combined_pscore
-    array = Billscore.where("chamber = ?", bill.billscore.first.chamber).pluck('combined_pscore')
-    array.sort!
-    rank = array.index(factor) + 1 
-    count = array.count
-  return rank, count
-  end
-  
+  end   
   
 end

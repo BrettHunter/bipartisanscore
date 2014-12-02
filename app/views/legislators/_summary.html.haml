@@ -32,3 +32,17 @@
     = "vote".pluralize(@legislator.legislatorscore.bipartisan_nay_votes)
   = @legislator.legislatorscore.effective_bipartisan_votes
   of those bipartisan votes have been effective (where the member vote matched the outcome of the chamber vote).
+  On average, 
+  = gender_descriptor(@legislator.bioguide_id)
+  accumulates
+  = @legislator.legislatorscore.mocscore.round(2)
+  BipartisanScore points per pertinent roll vote. 
+  = succeed "." do
+    = @legislator.title
+  = @legislator.last_name
+  is ranked as the
+  = @legislator.legislatorscore.chamberparty_rank.ordinalize
+  most bipartisan of
+  = @legislator.legislatorscore.chamberparty_count
+  = succeed "." do
+    = @chamberparty_descriptor

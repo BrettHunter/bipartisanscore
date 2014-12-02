@@ -61,29 +61,39 @@ class Legislatorscore < ActiveRecord::Base
   def self.calculate_mocpts(bio_id)
     mocpts = 0
     legrecord = Legislator.find_by bioguide_id: bio_id
-    mocparty = legrecord.party
-    ppos = nil
+    mocparty = legrecord.party    
     if mocparty == "R" 
       ppos = "rpos"
+      oppos = "dpos"
     else 
       ppos = "dpos"
+      oppos = "rpos"
     end
     i = 0
     obj = Vote.where("#{bio_id} != ? AND pertinent_vote = ? AND chamber = ?", "nil", "true", legrecord.chamber).each do |record|
       mocpos = record.send("#{bio_id}")
       bill = Billscore.find_by roll_id: record.roll_id
-      ippos = bill.send("#{ppos}")  
+      #moc's own party position
+      ippos = bill.send("#{ppos}")
+      #moc's opposing party position
+      ioppos = bill.send("#{oppos}")
       result = bill.result    
       voteresult = determine_voteresult(result)
-      if mocpos != ippos
+      if mocpos != ioppos
+        i = 0
+      end 
+      if mocpos == ioppos && mocpos == ippos
         i = 1
       end
-      if mocpos != ippos && mocpos == "Yea"
+      if mocpos == ioppos && mocpos != ippos && mocpos == "Nay"
         i = 2
       end
-      if mocpos != ippos && mocpos == "Yea" && mocpos == voteresult
+      if mocpos == ioppos && mocpos != ippos && mocpos == "Yea" && voteresult == "Nay"
         i = 3
-      end  
+      end      
+      if mocpos == ioppos && mocpos != ippos && mocpos == "Yea" && voteresult == "Yea"
+        i = 4
+      end     
       if mocpos == "Not Voting"
         i = 0
       end
@@ -92,10 +102,7 @@ class Legislatorscore < ActiveRecord::Base
       end
       if mocpos == "Present"
         i = 0
-      end
-      if bill.dpos == bill.rpos && mocpos != ippos
-        i = 0
-      end
+      end      
       imocpts = i * bill.pscore
       mocpts +=imocpts
       imocpts = 0
@@ -117,29 +124,39 @@ class Legislatorscore < ActiveRecord::Base
   def self.each_vote_points(bio_id)
     hsh = {}
     legrecord = Legislator.find_by bioguide_id: bio_id
-    mocparty = legrecord.party
-    ppos = nil
+    mocparty = legrecord.party    
     if mocparty == "R" 
       ppos = "rpos"
+      oppos = "dpos"
     else 
       ppos = "dpos"
+      oppos = "rpos"
     end
     i = 0
     obj = Vote.where("#{bio_id} != ? AND pertinent_vote = ? AND chamber = ?", "nil", "true", legrecord.chamber).each do |record|
       mocpos = record.send("#{bio_id}")
       bill = Billscore.find_by roll_id: record.roll_id
-      ippos = bill.send("#{ppos}")  
+      #moc's own party position
+      ippos = bill.send("#{ppos}")
+      #moc's opposing party position
+      ioppos = bill.send("#{oppos}")
       result = bill.result    
-      voteresult = determine_voteresult(result)  
-      if mocpos != ippos
+      voteresult = determine_voteresult(result)
+      if mocpos != ioppos
+        i = 0
+      end 
+      if mocpos == ioppos && mocpos == ippos
         i = 1
       end
-      if mocpos != ippos && mocpos == "Yea"
+      if mocpos == ioppos && mocpos != ippos && mocpos == "Nay"
         i = 2
       end
-      if mocpos != ippos && mocpos == "Yea" && mocpos == voteresult
+      if mocpos == ioppos && mocpos != ippos && mocpos == "Yea" && voteresult == "Nay"
         i = 3
-      end  
+      end      
+      if mocpos == ioppos && mocpos != ippos && mocpos == "Yea" && voteresult == "Yea"
+        i = 4
+      end     
       if mocpos == "Not Voting"
         i = 0
       end
@@ -148,10 +165,7 @@ class Legislatorscore < ActiveRecord::Base
       end
       if mocpos == "Present"
         i = 0
-      end
-      if bill.dpos == bill.rpos && mocpos != ippos
-        i = 0
-      end   
+      end     
       imocpts = i * bill.pscore
       if imocpts > 0
         hsh["#{record.bill_id}"] = imocpts
