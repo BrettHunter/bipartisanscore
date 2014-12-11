@@ -44,7 +44,7 @@ class Legislator < ActiveRecord::Base
   end   
 
   def self.get_legislators(i)   
-    legs = Congress.legislators(page: i , per_page: "1", fields: ["title","first_name","last_name","party","state", 
+    legs = Congress.legislators(page: i , per_page: "1", title: ["Rep", "Sen"], in_office: ["t", "f"], fields: ["title","first_name","last_name","party","state", 
       "bioguide_id", "chamber", "in_office", "gender",  "website",  "term_start", "term_end" ])  
   end
 

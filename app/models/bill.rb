@@ -48,7 +48,7 @@ class Bill < ActiveRecord::Base
       last_action_at: api_record.last_action_at, official_title: api_record.official_title,
       popular_title: api_record.popular_title, short_title: api_record.short_title, sponsor_id: api_record.sponsor_id, urls: api_record.urls, 
       summary: api_record.summary, summary_short: api_record.summary_short, cosponsor_ids: api_record.cosponsor_ids)
-  end   
+  end    
   
   def bill_rank(id)
     bill = Bill.find_by(id: id)

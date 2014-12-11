@@ -1,8 +1,4 @@
-last_vote_update_time = Billscore.get_last_vote_update_time
-last_billscore_update_time = Billscore.get_last_billscore_update_time
-if last_billscore_update_time > last_vote_update_time
-  abort("No updated Votes!")
-end
+
 n = 0  
   bill = Vote.where("pertinent_vote = ?", "true").pluck(:roll_id)
   bill.each do |b|

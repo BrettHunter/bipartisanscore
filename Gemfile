@@ -19,7 +19,7 @@ gem 'hirb', '~> 0.7.1'
 gem 'foundation-rails'
 gem "wice_grid", '3.4.2'
 gem 'unicorn'
-
+gem 'database_cleaner'
 
 group :doc do  
   gem 'sdoc', require: false
