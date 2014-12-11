@@ -1,6 +1,6 @@
 require 'congress/connection'
 require 'congress/request'
-Congress.key = '300b871e9523419988f04c02e5b80e68'
+Congress.key = SUNLIGHT_KEY
 
 class Vote < ActiveRecord::Base
   validates :roll_id, uniqueness: true
