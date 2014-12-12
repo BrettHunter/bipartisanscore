@@ -205,6 +205,11 @@ class Billscore < ActiveRecord::Base
         ddev: ddev, rdev: rdev, drdev: drdev, ddif: ddif, rdif: rdif, drdif: drdif, drpos: drpos, pscore: pscore, chamber: chamber,
         result: result, bill_id: bill_id, voted_at: voted_at)
       puts "#{roll_id} updated!"
+    elsif Billscore.where("bill_id = ? AND chamber = ?", bill_id, chamber).exists?
+      record = Billscore.where("bill_id = ? AND chamber = ?", bill_id, chamber)[0]
+      record.update(roll_id: roll_id, yea: yea, nay: nay, dyes: dyes, dno: dno, ryes: ryes, rno: rno, dpos: dpos, rpos: rpos,
+        ddev: ddev, rdev: rdev, drdev: drdev, ddif: ddif, rdif: rdif, drdif: drdif, drpos: drpos, pscore: pscore, chamber: chamber,
+        result: result, bill_id: bill_id, voted_at: voted_at)
     else
       Billscore.create(roll_id: roll_id, yea: yea, nay: nay, dyes: dyes, dno: dno, ryes: ryes, rno: rno, dpos: dpos, rpos: rpos,
         ddev: ddev, rdev: rdev, drdev: drdev, ddif: ddif, rdif: rdif, drdif: drdif, drpos: drpos, pscore: pscore, chamber: chamber,

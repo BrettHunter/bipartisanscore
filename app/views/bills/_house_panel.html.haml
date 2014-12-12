@@ -8,20 +8,20 @@
   %br
   Result: 
   %span.label
-    = @billscore[0].result
+    = @billscore.result
   %br
   = surround "(", ")" do
     = succeed " /" do
-      = @billscore[0].yea
+      = @billscore.yea
       Yea votes
-    = @billscore[0].nay
+    = @billscore.nay
     Nay votes
   %br
   Republican majority position: 
-  = @billscore[0].rpos
+  = @billscore.rpos
   %br
   Democrat majority position: 
-  = @billscore[0].dpos
+  = @billscore.dpos
   %br
   Voted on:
-  = @billscore[0].voted_at.to_date
+  = @billscore.voted_at.to_date

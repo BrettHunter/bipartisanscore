@@ -14,8 +14,8 @@ class BillsController < ApplicationController
     @billinfo = @bill.billscore
     @billcount = @billinfo.count
     @descriptor = bipartisan_descriptor(@bill.billscore[0].global_rank)
-    @house_billscore = @bill.billscore.where("chamber = ?", "house")
-    @senate_billscore = @bill.billscore.where("chamber = ?", "senate")
+    @house_billscore = @bill.billscore.where("chamber = ?", "house").retrieve_vote
+    @senate_billscore = @bill.billscore.where("chamber = ?", "senate").retrieve_vote
     @house_question = Vote.where("bill_id = ? AND chamber = ? AND pertinent_vote = ?", "#{@bill.bill_id}", "house", "true").pluck('question')[0]
     @senate_question = Vote.where("bill_id = ? AND chamber = ? AND pertinent_vote = ?", "#{@bill.bill_id}", "senate", "true").pluck('question')[0]
     @sponsor_id = @bill.sponsor_id.downcase
