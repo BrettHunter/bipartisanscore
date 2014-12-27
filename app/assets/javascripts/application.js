@@ -14,7 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require wice_grid
-//= require foundation/foundation
+//= require foundation
 //= require foundation/foundation.alert
 //= require foundation/foundation.topbar
 //= require_tree .
