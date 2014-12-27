@@ -1,14 +1,5 @@
 // import the CSS framework
-@import "foundation/components/grid";
-@import "foundation/components/alert-boxes";
-@import "foundation/components/block-grid";
-@import "foundation/components/button-groups";
-@import "foundation/components/buttons";
-@import "foundation/components/inline-lists";
-@import "foundation/components/labels";
-@import "foundation/components/pagination";
-@import "foundation/components/panels";
-@import "foundation/components/top-bar";
+@import "foundation";
 
 // override for the 'Home' navigation link
 .top-bar .name {
