@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="600" height="90" viewBox="0, 0, 600, 90">
+  <g id="Layer_1">
+    <text transform="matrix(1, 0, 0, 1, 299, 32)">
+      <tspan x="-183.229" y="-2" font-family="Tahoma-Bold" font-size="24" fill="#008CFF">BipartisanScore Point Formula</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 300, 81)">
+      <tspan x="-162.971" y="-5" font-family="Tahoma-Bold" font-size="18" fill="#008CFF">bipartisan factor * opposition factor</tspan>
+    </text>
+  </g>
+</svg>

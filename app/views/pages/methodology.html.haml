@@ -1,28 +1,28 @@
 .row.contain
   %h4.centered
     BipartisanScore Methodology
-  BipartisanScore seeks to objectively rate all members of Congress based on their bipartisan actions.  BipartisanScore uses roll votes cast by legislators as the basis to identify and evaluate bipartisan actions.  The evaluation assigns points to each member for each roll vote that is cast in a bipartisan manner.  A legislator's vote is considered to be bipartisan when it differs from the majority position of his or her own party and matches the majority position of the opponent party.  Bipartisan votes in favor of advancing legislation are given additional points, and if the overall outcome of the chamber vote results in advancement of the legislation, then even more points are awarded to the legislator. 
+  BipartisanScore seeks to objectively rate all members of Congress based on their bipartisan actions.  BipartisanScore uses roll votes cast by legislators as the basis to identify and evaluate bipartisan actions.  The evaluation assigns points to each member for each roll vote that is cast in a bipartisan manner.  A legislator's vote is considered to be bipartisan when it matches the majority position of the opponent party.  Bipartisan votes in favor of advancing legislation are given additional points, and if the overall outcome of the chamber vote results in advancement of the legislation, then even more points are awarded to the legislator. 
   %h5.centered.highlight
     The BipartisanScore Formula
-  The BipartisanScore is a percentile value that represents a legislator's standing compared to his or her peers.  Peers include all legislators in the same chamber that belong to the same party.  For example, a Senate Republican with a BipartisanScore of '75' has been found to be more bipartisan than 75% of all Republicans in the Senate.  The BipartisanScore formula is run for each legislator:
+  The BipartisanScore is a percentile value that represents a legislator's standing compared to his or her peers.  Peers include all legislators in the same chamber that belong to the same party.  For example, a Senate Republican with a BipartisanScore of '75' has a higher average BipartisanScore points-per-vote value than 75% of all Republicans in the Senate.  The BipartisanScore formula is run for each legislator:
   .imgcontainer
-    = image_tag("formula.png")
+    = image_tag("bipartisanformula.png")
   %h5.centered.highlight
     BipartisanScore Points
   The above formula for the BipartisanScore relies upon the accrual of points by each legislator for each bipartisan vote.  BipartisanScore points are calculated for each roll vote cast by each legislator: 
   .imgcontainer
-    = image_tag("pointFormula.png")
+    = image_tag("bipartisanpointformula.png")
   %h5.centered.highlight
     The Bipartisan Factor
-  The above formula for BipartisanScore points relies upon the calculation of the Bipartisan Factor.  The Bipartisan Factor is an important component of determining the bipartisanship level of any given vote cast by a legislator.  It is designed to progressively reward legislators that cast votes contrary to his or her own party's majority in order to pass or advance legislation.  The Bipartisan Factor is determined by applying a simple algorithm to each roll vote of each legislator:
+  The above formula for BipartisanScore points relies upon the calculation of the Bipartisan Factor.  The Bipartisan Factor is an important component of determining the bipartisanship level of any given vote cast by a legislator.  It is designed to progressively reward legislators that cast votes that match the majority position of the opponent party.  The Bipartisan Factor is determined by applying a simple algorithm to each roll vote of each legislator:
   .imgcontainer
-    = image_tag("factorAlgorithm.png")
-  The above algorithm illustration demonstrates how the Bipartisan Factor progressively rewards legislators that (1) cast a roll vote that differs from their own party's majority position while simulataneously matching the opposing party, (2) vote to advance/pass legislation, and (3) provide the needed effort to affect the final result of the chamber vote to advance/pass legislation.  Keep in mind that per the structure of the BipartisanScore Point formula, if a roll vote cast by a legislator is determined to have a Bipartisan Factor of zero, he or she will not accrue any BipartisanScore points for that vote.  
+    = image_tag("bipartisanfactoralgorithm.png")
+  The above algorithm illustration demonstrates how the Bipartisan Factor progressively rewards legislators that (1) cast a roll vote that matches the majority position of the opponent party, (2) vote to advance/pass legislation, and (3) provide the needed effort to affect the final result of the chamber vote to advance/pass legislation.  Keep in mind that per the structure of the BipartisanScore Point formula, if a roll vote cast by a legislator is determined to have a Bipartisan Factor of zero, he or she will not accrue any BipartisanScore points for that vote.  
   %h5.centered.highlight
     Bill Opposition Factor
   In addition to the Bipartisan Factor, the BipartisanScore Point formula relies upon calculation of the Bill Opposition Factor.  The Bill Opposition Factor reflects the net number of legislators from different parties that oppose each other's position on a particular roll vote.  A high Bill Opposition Factor signifies broad party-line voting while a lower Bill Opposition Factor signifies a higher level of bipartisnship amongst legislators.  The BipartisanScore Point formula is designed to reward legislators more when they vote in a bipartisan manner on a highly-partisan bill.  
   .imgcontainer
-    = image_tag("opposition.png")
+    = image_tag("bipartisanoppositionfactor.png")
   The above example illustrates how the Opposition Factor can be drawn from a highly-partisan bill.  Here the opposition factor is determined to be 378 after subtracting the 11 Republican and 4 Democrat deviators from the total vote count.  
   %h5.centered.highlight
     Terminology
