@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="600" height="670" viewBox="0, 0, 600, 670">
+  <g id="Background">
+    <rect x="0" y="0" width="600" height="670" fill="#FFFFFF"/>
+  </g>
+  <g id="Layer_1">
+    <text transform="matrix(1, 0, 0, 1, 297.5, 22)">
+      <tspan x="-166.783" y="9" font-family="Tahoma-Bold" font-size="24" fill="#1B3E64">Bipartisan Factor Algorithm</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 299.5, 74)">
+      <tspan x="-186.947" y="5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">Did Legislator's Vote Match Opposing Party Position?</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 151, 145)">
+      <tspan x="-12.952" y="5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">Yes</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 456.5, 144)">
+      <tspan x="-10.214" y="5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">No</tspan>
+    </text>
+    <g>
+      <path d="M297.5,89.5 L175.108,126.872" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M174.232,124.002 L167.456,129.208 L175.984,129.741 z" fill="#000000"/>
+        <path d="M174.232,124.002 L167.456,129.208 L175.984,129.741 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <g>
+      <path d="M297.5,89.5 L419.892,126.872" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M419.016,129.741 L427.544,129.208 L420.768,124.002 z" fill="#000000"/>
+        <path d="M419.016,129.741 L427.544,129.208 L420.768,124.002 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 460, 208)">
+      <tspan x="-37" y="5" font-family="Tahoma-Bold" font-size="14" fill="#ED033E">Factor = 0</tspan>
+    </text>
+    <g>
+      <path d="M147.5,158.5 L147.5,185.5" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M144.5,185.5 L147.5,193.5 L150.5,185.5 z" fill="#000000"/>
+        <path d="M144.5,185.5 L147.5,193.5 L150.5,185.5 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <g>
+      <path d="M458.5,158.5 L458.5,185.5" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M455.5,185.5 L458.5,193.5 L461.5,185.5 z" fill="#000000"/>
+        <path d="M455.5,185.5 L458.5,193.5 L461.5,185.5 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 149.5, 292.085)">
+      <tspan x="-12.952" y="5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">Yes</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 345.585, 292.085)">
+      <tspan x="-10.214" y="5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">No</tspan>
+    </text>
+    <g>
+      <path d="M147.5,243.5 L147.5,268.585" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M144.5,268.585 L147.5,276.585 L150.5,268.585 z" fill="#000000"/>
+        <path d="M144.5,268.585 L147.5,276.585 L150.5,268.585 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <g>
+      <path d="M147.5,243.5 L312.753,275.856" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M312.177,278.8 L320.604,277.393 L313.33,272.912 z" fill="#000000"/>
+        <path d="M312.177,278.8 L320.604,277.393 L313.33,272.912 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <g>
+      <path d="M147.5,311.585 L147.5,334.585" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M144.5,334.585 L147.5,342.585 L150.5,334.585 z" fill="#000000"/>
+        <path d="M144.5,334.585 L147.5,342.585 L150.5,334.585 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 144.585, 362.085)">
+      <tspan x="-37" y="5" font-family="Tahoma-Bold" font-size="14" fill="#ED033E">Factor = 1</tspan>
+    </text>
+    <g>
+      <path d="M343.585,311.585 L344.304,334.59" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M341.306,334.684 L344.554,342.586 L347.303,334.496 z" fill="#000000"/>
+        <path d="M341.306,334.684 L344.554,342.586 L347.303,334.496 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 345.585, 362.085)">
+      <tspan x="-42.288" y="5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">Vote Value?</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 457.085, 432.085)">
+      <tspan x="-20.963" y="5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">"Nay"</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 245.085, 432.085)">
+      <tspan x="-20.389" y="5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">"Yea"</tspan>
+    </text>
+    <g>
+      <path d="M343.585,378.585 L282.289,414.076" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M280.785,411.48 L275.365,418.084 L283.792,416.672 z" fill="#000000"/>
+        <path d="M280.785,411.48 L275.365,418.084 L283.792,416.672 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <g>
+      <path d="M343.585,378.585 L420.358,414.75" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M419.08,417.464 L427.595,418.159 L421.637,412.036 z" fill="#000000"/>
+        <path d="M419.08,417.464 L427.595,418.159 L421.637,412.036 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 239.085, 500.085)">
+      <tspan x="-81.328" y="5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">Did Bill Pass/Advance?</tspan>
+    </text>
+    <g>
+      <path d="M245.5,449.585 L245.5,472.585" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M242.5,472.585 L245.5,480.585 L248.5,472.585 z" fill="#000000"/>
+        <path d="M242.5,472.585 L245.5,480.585 L248.5,472.585 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 457.085, 500.085)">
+      <tspan x="-37" y="5" font-family="Tahoma-Bold" font-size="14" fill="#ED033E">Factor = 2</tspan>
+    </text>
+    <g>
+      <path d="M458.5,449.585 L458.5,472.585" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M455.5,472.585 L458.5,480.585 L461.5,472.585 z" fill="#000000"/>
+        <path d="M455.5,472.585 L458.5,480.585 L461.5,472.585 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 119.085, 569.085)">
+      <tspan x="-12.952" y="5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">Yes</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 359.585, 569.085)">
+      <tspan x="-10.214" y="5" font-family="Tahoma-Bold" font-size="14" fill="#008CFF">No</tspan>
+    </text>
+    <g>
+      <path d="M245.5,518.585 L150.918,557.185" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M149.785,554.407 L143.511,560.208 L152.052,559.962 z" fill="#000000"/>
+        <path d="M149.785,554.407 L143.511,560.208 L152.052,559.962 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <g>
+      <path d="M245.5,518.585 L335.312,557.043" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M334.131,559.801 L342.666,560.192 L336.493,554.285 z" fill="#000000"/>
+        <path d="M334.131,559.801 L342.666,560.192 L336.493,554.285 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 118.085, 627.085)">
+      <tspan x="-37" y="5" font-family="Tahoma-Bold" font-size="14" fill="#ED033E">Factor = 4</tspan>
+    </text>
+    <text transform="matrix(1, 0, 0, 1, 362.085, 627.085)">
+      <tspan x="-37" y="5" font-family="Tahoma-Bold" font-size="14" fill="#ED033E">Factor = 3</tspan>
+    </text>
+    <g>
+      <path d="M119.585,584.585 L119.585,602.585" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M116.585,602.585 L119.585,610.585 L122.585,602.585 z" fill="#000000"/>
+        <path d="M116.585,602.585 L119.585,610.585 L122.585,602.585 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <g>
+      <path d="M358.585,584.585 L358.585,602.585" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      <g>
+        <path d="M355.585,602.585 L358.585,610.585 L361.585,602.585 z" fill="#000000"/>
+        <path d="M355.585,602.585 L358.585,610.585 L361.585,602.585 z" fill-opacity="0" stroke="#000000" stroke-width="1"/>
+      </g>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 147.976, 218.476)">
+      <tspan x="-90.58" y="-3.5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">Did Legislator Vore Match </tspan>
+      <tspan x="-71.388" y="13.5" font-family="Tahoma-Bold" font-size="14" fill="#1B3E64">Own Party Position?</tspan>
+    </text>
+  </g>
+</svg>
