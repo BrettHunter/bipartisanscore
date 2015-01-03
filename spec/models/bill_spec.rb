@@ -34,4 +34,27 @@ describe Bill do
     end   
   end  
   
+  describe "#bill_rank" do
+    it "should return the bill's rank within chamber" do      
+      bill = FactoryGirl.create(:bill, chamber: "house")
+      id = bill.id
+      5.times {FactoryGirl.create(:billscore, pscore: "50", chamber: "house")}
+      #ensure excludes ranking from different chamber
+      5.times {FactoryGirl.create(:billscore, pscore: "0", chamber: "senate")}
+      FactoryGirl.create(:billscore, pscore: "5", chamber: "house", bill_table_id: "#{id}")
+      expect{Bill.bill_rank(id).to eq([1,11])}
+    end
+  end
+  
+  describe "#combined_opposition_factor" do
+    it "should return a Bill's combined opposition factor" do      
+      bill = FactoryGirl.create(:bill, chamber: "house")
+      id = bill.id
+      FactoryGirl.create(:billscore, pscore: "5", chamber: "house", bill_table_id: "#{id}")
+      FactoryGirl.create(:billscore, pscore: "5", chamber: "senate", bill_table_id: "#{id}")      
+      expect{Bill.bill_rank(id).to eq(10)}
+    end
+  end
+      
+  
 end

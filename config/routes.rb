@@ -1,5 +1,6 @@
 Bipartisanscore::Application.routes.draw do
   get "legislators/index"
+ 
   resources :bills, :only => [:index, :show]
   resources :legislators, :only => [:index, :show]
     # The priority is based upon order of creation: first created -> highest priority.

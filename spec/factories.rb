@@ -1,25 +1,23 @@
 FactoryGirl.define do
+  sequence(:roll_id) { |n| "#{n}-2014" } 
+  
   factory :bill do      
   end
   
-  factory :legislator do
-    bioguide_id "j000296"
-    party "D"
+  factory :legislator do    
   end
+  
+  factory :legislatorscore do
+  end
+  
   
   factory :vote do
-    sequence(:roll_id) { |n| "#{n}-2014" }
-    j000296 "Yea"
-    c001102 "Nay"
+    roll_id  
   end
   
-  factory :billscore_vote, class: Vote do
-    roll_id "0-2014"
-    j000296 "Yea"
-    c001102 "Nay"
-  end
-    
   factory :billscore do
-  end
+    roll_id
+  end  
+  
   
 end

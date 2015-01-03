@@ -1,4 +1,3 @@
-
 n = 0  
   bill = Vote.where("pertinent_vote = ?", "true").pluck(:roll_id)
   bill.each do |b|

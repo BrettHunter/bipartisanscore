@@ -1,4 +1,4 @@
-
+def main
   api_update = Bill.get_last_api_update()
   db_update = Bill.get_last_db_update() 
   if db_update == nil
@@ -26,5 +26,5 @@ if db_update > api_update
     puts i    
     end
 end
-
+end
 
