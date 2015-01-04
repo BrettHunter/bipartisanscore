@@ -346,7 +346,7 @@ class Legislatorscore < ActiveRecord::Base
     return hsh.count
   end
 
-def self.calculate_effective_bipartisan_votes(bio_id)
+  def self.calculate_effective_bipartisan_votes(bio_id)
     chamber = determine_chamber(bio_id)
     hsh = get_pointed_votes(bio_id)
     ary = hsh.keys

@@ -21,10 +21,6 @@ gem "wice_grid", '3.4.2'
 gem 'unicorn'
 gem 'database_cleaner'
 
-group :doc do  
-  gem 'sdoc', require: false
-end
-
 group :development, :test do  
   gem "better_errors"
   gem "binding_of_caller"
@@ -39,7 +35,9 @@ group :production do
   gem 'rails_12factor', '0.0.2'  
 end
 
-
+group :doc do  
+  gem 'sdoc', require: false
+end
 
 
 

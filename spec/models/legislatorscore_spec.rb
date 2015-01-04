@@ -78,4 +78,28 @@ describe Legislatorscore do
     end
   end 
   
+  describe "#calculate_mocscore" do
+    it "should determine the avg bipartisanscore points per vote for a given legislator" do
+      
+      object = Legislatorscore.calculate_mocscore(17,300)
+      expect(object).to eq(17.65)
+    end
+  end
+  
+  describe "#assign_chamberparty" do
+    it "should combine a legislator's chamber and party and return the chamberparty" do
+      
+      object = Legislatorscore.assign_chamberparty("house","D")
+      expect(object).to eq("dem_house")
+    end
+  end
+  
+  describe "#get_voted_roll_ids" do
+    it "should return an array of all pertinent roll_ids voted on by a given legislator" do
+      
+      object = Legislatorscore.get_voted_roll_ids("c001102")
+      expect(object).to eq([["2-2014", "Nay"], ["1-2014", "Yea"]])
+    end
+  end
+  
 end  
